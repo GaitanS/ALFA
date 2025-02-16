@@ -22,6 +22,44 @@ a:hover {
 body {
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+th {
+    text-align: -webkit-match-parent;
+    text-align: match-parent;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 80vh;
+    background-size: cover;
+    background-position: center;
+    margin-top: -56px;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(135deg, #820000 0%, rgba(0, 0, 0, 0.95) 100%);
+    z-index: -1;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
 }
 
 /* Navigation */
@@ -145,71 +183,6 @@ body {
     padding-top: 2.625rem;
 }
 
-.form-text {
-    margin-top: 0.25rem;
-    font-size: 0.875rem;
-    color: #6c757d;
-}
-
-.invalid-feedback {
-    display: block;
-    margin-top: 0.25rem;
-    font-size: 0.875rem;
-    color: #dc3545;
-}
-
-/* Hero Section */
-.hero {
-    position: relative;
-    min-height: 80vh;
-    background-size: cover;
-    background-position: center;
-    margin-top: -56px; /* Offset for navbar height */
-    display: flex;
-    align-items: center;
-    z-index: 1;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, var(--primary-color) 0%, rgba(0, 0, 0, 0.95) 100%);
-    z-index: -1;
-}
-
-.hero .container {
-    position: relative;
-    z-index: 2;
-}
-
-/* Service Cards */
-.service-card {
-    transition: transform 0.3s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-}
-
-.service-card i {
-    transition: transform 0.3s ease;
-    color: var(--primary-color);
-}
-
-.service-card:hover i {
-    transform: scale(1.1);
-}
-
-.service-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
-
 /* WhatsApp Float Button */
 .whatsapp-float {
     position: fixed;
@@ -270,38 +243,28 @@ footer a:hover {
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
-/* Testimonials */
-.testimonial-card {
-    height: 100%;
+/* Service Cards */
+.service-card {
     transition: transform 0.3s ease;
 }
 
-.testimonial-card:hover {
-    transform: translateY(-5px);
+.service-card:hover {
+    transform: translateY(-10px);
 }
 
-/* Service Area */
-.coverage-area {
-    border-left: 3px solid var(--primary-color);
-    padding-left: 20px;
-    margin-bottom: 30px;
+.service-card i {
+    transition: transform 0.3s ease;
+    color: var(--primary-color);
 }
 
-/* Value Cards */
-.value-icon {
-    width: 80px;
-    height: 80px;
-    background-color: var(--primary-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1.5rem;
+.service-card:hover i {
+    transform: scale(1.1);
 }
 
-.value-icon i {
-    font-size: 2rem;
-    color: white;
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
 }
 
 /* Form Help Text */
@@ -323,10 +286,6 @@ footer a:hover {
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    .hero {
-        min-height: 400px;
-    }
-    
     .whatsapp-float {
         width: 50px;
         height: 50px;

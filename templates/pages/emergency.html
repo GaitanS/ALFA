@@ -5,7 +5,7 @@
 
 {% block content %}
 <!-- Emergency Header -->
-<section class="bg-danger text-white py-4">
+<section class="bg-danger text-white py-4" role="banner">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-8">
@@ -13,7 +13,7 @@
                 <p class="lead mb-md-0">We're available 24/7 for emergency vehicle recovery and roadside assistance.</p>
             </div>
             <div class="col-md-4 text-md-end">
-                <a href="tel:{{ site_settings.phone_number }}" class="btn btn-light btn-lg">
+                <a href="tel:{{ site_settings.phone_number }}" class="btn btn-light btn-lg" title="Call for emergency assistance" aria-label="Call for emergency assistance">
                     <i class="fas fa-phone me-2"></i>Call Now
                 </a>
             </div>
@@ -22,15 +22,15 @@
 </section>
 
 <!-- Quick Actions -->
-<section class="bg-dark text-white py-4">
+<section class="bg-dark text-white py-4" role="region" aria-label="Quick contact options">
     <div class="container">
         <div class="row">
             <div class="col-md-6 mb-3 mb-md-0">
                 <div class="d-flex align-items-center">
-                    <i class="fas fa-phone-volume fa-3x me-3"></i>
+                    <i class="fas fa-phone-volume fa-3x me-3" aria-hidden="true"></i>
                     <div>
                         <h4 class="mb-1">Call Us Directly</h4>
-                        <a href="tel:{{ site_settings.phone_number }}" class="text-white text-decoration-none h5">
+                        <a href="tel:{{ site_settings.phone_number }}" class="text-white text-decoration-none h5" title="Call our emergency number" aria-label="Call our emergency number">
                             {{ site_settings.phone_number }}
                         </a>
                     </div>
@@ -38,11 +38,11 @@
             </div>
             <div class="col-md-6">
                 <div class="d-flex align-items-center">
-                    <i class="fab fa-whatsapp fa-3x me-3"></i>
+                    <i class="fab fa-whatsapp fa-3x me-3" aria-hidden="true"></i>
                     <div>
                         <h4 class="mb-1">WhatsApp Us</h4>
                         <a href="https://wa.me/{{ site_settings.whatsapp_number|cut:'+' }}?text=Emergency:%20I%20need%20immediate%20assistance" 
-                           class="text-white text-decoration-none h5" target="_blank">
+                           class="text-white text-decoration-none h5" target="_blank" title="Send emergency WhatsApp message" aria-label="Send emergency WhatsApp message">
                             Send Message
                         </a>
                     </div>
@@ -53,14 +53,14 @@
 </section>
 
 <!-- Emergency Form -->
-<section class="py-5">
+<section class="py-5" role="main">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
                 <div class="card border-0 shadow-sm">
                     <div class="card-body p-4">
                         <h2 class="card-title mb-4">Request Emergency Assistance</h2>
-                        <form method="post" id="emergency-form">
+                        <form method="post" id="emergency-form" aria-label="Emergency assistance request form">
                             {% csrf_token %}
                             <div class="row">
                                 <div class="col-md-6 mb-3">
@@ -84,7 +84,7 @@
                             <div class="mb-3">
                                 {{ form.issue_description|as_crispy_field }}
                             </div>
-                            <button type="submit" class="btn btn-danger btn-lg">
+                            <button type="submit" class="btn btn-danger btn-lg" title="Submit emergency assistance request">
                                 <i class="fas fa-exclamation-triangle me-2"></i>Submit Emergency Request
                             </button>
                         </form>
@@ -98,19 +98,19 @@
                         <h3 class="h4 card-title">Important Information</h3>
                         <ul class="list-unstyled mb-0">
                             <li class="mb-3">
-                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <i class="fas fa-check-circle text-success me-2" aria-hidden="true"></i>
                                 24/7 Emergency Response
                             </li>
                             <li class="mb-3">
-                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <i class="fas fa-check-circle text-success me-2" aria-hidden="true"></i>
                                 Rapid Response Times
                             </li>
                             <li class="mb-3">
-                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <i class="fas fa-check-circle text-success me-2" aria-hidden="true"></i>
                                 Professional Equipment
                             </li>
                             <li>
-                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <i class="fas fa-check-circle text-success me-2" aria-hidden="true"></i>
                                 Experienced Team
                             </li>
                         </ul>
@@ -124,15 +124,15 @@
                         <p class="card-text">We provide emergency vehicle recovery services across the UK, with rapid response times in:</p>
                         <ul class="list-unstyled mb-0">
                             <li class="mb-2">
-                                <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                                <i class="fas fa-map-marker-alt text-danger me-2" aria-hidden="true"></i>
                                 Bristol and surrounding areas
                             </li>
                             <li class="mb-2">
-                                <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                                <i class="fas fa-map-marker-alt text-danger me-2" aria-hidden="true"></i>
                                 South West England
                             </li>
                             <li>
-                                <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                                <i class="fas fa-map-marker-alt text-danger me-2" aria-hidden="true"></i>
                                 Nationwide coverage available
                             </li>
                         </ul>
@@ -144,7 +144,7 @@
 </section>
 
 <!-- What to Expect -->
-<section class="py-5 bg-light">
+<section class="py-5 bg-light" role="region" aria-label="Service process steps">
     <div class="container">
         <h2 class="text-center mb-5">What to Expect</h2>
         <div class="row g-4">

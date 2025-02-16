@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token }}">
+    <link rel="icon" type="image/png" href="{% static 'img/logo.png' %}" sizes="32x32">
+    <link rel="apple-touch-icon" href="{% static 'img/logo.png' %}">
     {% if page.meta_description %}
         <meta name="description" content="{{ page.meta_description }}">
     {% else %}
@@ -33,7 +35,7 @@
             <a class="navbar-brand" href="{% url 'pages:home' %}">
                 <img src="{% static 'img/logo.png' %}" alt="{{ site_settings.company_name }}" class="navbar-logo">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" title="Toggle navigation menu" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -104,12 +106,12 @@
                     </ul>
                     <div class="mt-3">
                         {% if site_settings.facebook_link %}
-                        <a href="{{ site_settings.facebook_link }}" class="me-2" target="_blank">
+                        <a href="{{ site_settings.facebook_link }}" class="me-2" target="_blank" aria-label="Visit our Facebook page" title="Visit our Facebook page">
                             <i class="fab fa-facebook fa-2x"></i>
                         </a>
                         {% endif %}
                         {% if site_settings.instagram_link %}
-                        <a href="{{ site_settings.instagram_link }}" target="_blank">
+                        <a href="{{ site_settings.instagram_link }}" target="_blank" aria-label="Visit our Instagram page" title="Visit our Instagram page">
                             <i class="fab fa-instagram fa-2x"></i>
                         </a>
                         {% endif %}
@@ -126,7 +128,7 @@
 
     <!-- WhatsApp Float Button -->
     <a href="https://wa.me/{{ site_settings.whatsapp_number|cut:'+' }}?text=I%20need%20assistance" 
-       class="whatsapp-float" target="_blank">
+       class="whatsapp-float" target="_blank" title="Contact us on WhatsApp" aria-label="Contact us on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -141,7 +143,7 @@
                     </p>
                 </div>
                 <div class="col-md-3 text-md-end">
-                    <button id="accept-cookies" class="btn btn-accent">Accept</button>
+                    <button id="accept-cookies" class="btn btn-accent" title="Accept cookies">Accept</button>
                 </div>
             </div>
         </div>

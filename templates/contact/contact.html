@@ -13,7 +13,7 @@
                 <p class="lead mb-0">Get in touch with our team for any inquiries or assistance.</p>
             </div>
             <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
-                <a href="{% url 'pages:emergency' %}" class="btn btn-accent btn-lg">Emergency Assistance</a>
+                <a href="{% url 'pages:emergency' %}" class="btn btn-accent btn-lg" title="Request emergency assistance">Emergency Assistance</a>
             </div>
         </div>
     </div>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="ms-3">
                         <h5 class="mb-1">Phone</h5>
-                        <a href="tel:{{ site_settings.phone_number }}" class="text-decoration-none">
+                        <a href="tel:{{ site_settings.phone_number }}" class="text-decoration-none" title="Call us">
                             {{ site_settings.phone_number }}
                         </a>
                     </div>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="ms-3">
                         <h5 class="mb-1">WhatsApp</h5>
-                        <a href="https://wa.me/{{ site_settings.whatsapp_number|cut:'+' }}" class="text-decoration-none" target="_blank">
+                        <a href="https://wa.me/{{ site_settings.whatsapp_number|cut:'+' }}" class="text-decoration-none" target="_blank" title="Message us on WhatsApp" aria-label="Message us on WhatsApp">
                             Message Us
                         </a>
                     </div>
@@ -72,10 +72,10 @@
                 <div class="card border-0 shadow-sm">
                     <div class="card-body p-4">
                         <h2 class="card-title mb-4">Send Us a Message</h2>
-                        <form method="post" id="contact-form">
+                        <form method="post" id="contact-form" aria-label="Contact form">
                             {% csrf_token %}
                             {{ form|crispy }}
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary" title="Send message">
                                 <i class="fas fa-paper-plane me-2"></i>Send Message
                             </button>
                         </form>
@@ -91,7 +91,7 @@
                         {% else %}
                             <div class="ratio ratio-4x3">
                                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.0679863639507!2d-2.701436684280764!3d51.50661397963571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48718e1c6cded075%3A0x8d0f0c2c8d9d7c8a!2sDean%20Rd%2C%20Avonmouth%2C%20Bristol%20BS11%208AT!5e0!3m2!1sen!2suk!4v1645000000000!5m2!1sen!2suk" 
-                                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                                    style="border:0;" allowfullscreen="" loading="lazy" title="Our location on Google Maps" aria-label="Our location on Google Maps"></iframe>
                             </div>
                         {% endif %}
                         <div class="mt-4">
@@ -117,8 +117,8 @@
                 <p class="lead mb-0">We're available 24/7 for vehicle recovery and roadside assistance.</p>
             </div>
             <div class="col-lg-4 text-lg-end">
-                <a href="{% url 'pages:emergency' %}" class="btn btn-light btn-lg me-2">Request Help</a>
-                <a href="tel:{{ site_settings.phone_number }}" class="btn btn-outline-light btn-lg">
+                <a href="{% url 'pages:emergency' %}" class="btn btn-light btn-lg me-2" title="Request emergency help">Request Help</a>
+                <a href="tel:{{ site_settings.phone_number }}" class="btn btn-outline-light btn-lg" title="Call for emergency assistance">
                     <i class="fas fa-phone me-2"></i>Call Now
                 </a>
             </div>
