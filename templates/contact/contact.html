@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Contact Us - {{ site_settings.company_name }}{% endblock %}
+
+{% block content %}
+<!-- Contact Header -->
+<section class="bg-primary text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold">Contact Us</h1>
+                <p class="lead mb-0">Get in touch with our team for any inquiries or assistance.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                <a href="{% url 'pages:emergency' %}" class="btn btn-accent btn-lg">Emergency Assistance</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Contact Options -->
+<section class="bg-light py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-phone fa-2x text-primary"></i>
+                    </div>
+                    <div class="ms-3">
+                        <h5 class="mb-1">Phone</h5>
+                        <a href="tel:{{ site_settings.phone_number }}" class="text-decoration-none">
+                            {{ site_settings.phone_number }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0">
+                        <i class="fab fa-whatsapp fa-2x text-success"></i>
+                    </div>
+                    <div class="ms-3">
+                        <h5 class="mb-1">WhatsApp</h5>
+                        <a href="https://wa.me/{{ site_settings.whatsapp_number|cut:'+' }}" class="text-decoration-none" target="_blank">
+                            Message Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="d-flex align-items-center">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-map-marker-alt fa-2x text-danger"></i>
+                    </div>
+                    <div class="ms-3">
+                        <h5 class="mb-1">Location</h5>
+                        <p class="mb-0">{{ site_settings.address }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form & Map -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h2 class="card-title mb-4">Send Us a Message</h2>
+                        <form method="post" id="contact-form">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane me-2"></i>Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4">
+                        <h2 class="card-title mb-4">Our Location</h2>
+                        {% if site_settings.google_maps_embed %}
+                            {{ site_settings.google_maps_embed|safe }}
+                        {% else %}
+                            <div class="ratio ratio-4x3">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.0679863639507!2d-2.701436684280764!3d51.50661397963571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48718e1c6cded075%3A0x8d0f0c2c8d9d7c8a!2sDean%20Rd%2C%20Avonmouth%2C%20Bristol%20BS11%208AT!5e0!3m2!1sen!2suk!4v1645000000000!5m2!1sen!2suk" 
+                                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        {% endif %}
+                        <div class="mt-4">
+                            <h4>Business Hours</h4>
+                            <p class="mb-0">
+                                <strong>Recovery Services:</strong> 24/7<br>
+                                <strong>Office Hours:</strong> {{ site_settings.operating_hours }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Emergency CTA -->
+<section class="py-5 bg-danger text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mb-4 mb-lg-0">
+                <h2 class="display-5 fw-bold">Need Emergency Assistance?</h2>
+                <p class="lead mb-0">We're available 24/7 for vehicle recovery and roadside assistance.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{% url 'pages:emergency' %}" class="btn btn-light btn-lg me-2">Request Help</a>
+                <a href="tel:{{ site_settings.phone_number }}" class="btn btn-outline-light btn-lg">
+                    <i class="fas fa-phone me-2"></i>Call Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contact-form');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+        submitBtn.disabled = true;
+        
+        // Submit form
+        fetch('{% url "contact:submit_contact" %}', {
+            method: 'POST',
+            body: new FormData(form),
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Thank you for your message. We will get back to you soon.');
+                form.reset();
+            } else {
+                alert('There was an error sending your message. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('There was an error sending your message. Please try again.');
+        })
+        .finally(() => {
+            // Reset button state
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        });
+    });
+});
+</script>
+{% endblock %}

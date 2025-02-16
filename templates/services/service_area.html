@@ -1,0 +1,160 @@
+{% extends 'base.html' %}
+
+{% block title %}Service Area Coverage - {{ site_settings.company_name }}{% endblock %}
+
+{% block content %}
+<!-- Service Area Header -->
+<section class="bg-primary text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold">Service Area Coverage</h1>
+                <p class="lead mb-0">Professional vehicle recovery services across the UK</p>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                <a href="{% url 'pages:emergency' %}" class="btn btn-accent btn-lg me-2">Request Service</a>
+                <a href="tel:{{ site_settings.phone_number }}" class="btn btn-outline-light btn-lg">
+                    <i class="fas fa-phone me-2"></i>Call Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Coverage Areas -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Coverage Details -->
+            <div class="col-lg-8 mb-4 mb-lg-0">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        {% for area in areas %}
+                        <div class="coverage-area mb-5 {% if forloop.last %}mb-0{% endif %}">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="flex-shrink-0">
+                                    <div class="rounded-circle bg-primary d-flex align-items-center justify-content-center" 
+                                         style="width: 60px; height: 60px;">
+                                        <i class="fas fa-map-marker-alt fa-2x text-white"></i>
+                                    </div>
+                                </div>
+                                <div class="ms-4">
+                                    <h2 class="h4 mb-1">{{ area.name }}</h2>
+                                    <p class="text-muted mb-0">{{ area.coverage_type }}</p>
+                                </div>
+                            </div>
+                            
+                            <div class="ms-5 ps-4 border-start">
+                                <div class="mb-3">
+                                    <strong class="text-primary">Response Time:</strong>
+                                    <span class="ms-2">{{ area.response_time }}</span>
+                                </div>
+                                
+                                <div class="row g-4">
+                                    {% if area.name == 'Bristol' %}
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            <div>Immediate dispatch available</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            <div>Priority response</div>
+                                        </div>
+                                    </div>
+                                    {% elif area.name == 'South West England' %}
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            <div>Regular service area</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            <div>Competitive rates</div>
+                                        </div>
+                                    </div>
+                                    {% else %}
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            <div>Long-distance recovery</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="d-flex align-items-center">
+                                            <i class="fas fa-check-circle text-success me-2"></i>
+                                            <div>Custom quotes available</div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <!-- Quick Contact -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body p-4">
+                        <h3 class="h4 mb-4">Contact Us</h3>
+                        <div class="d-grid gap-2">
+                            <a href="tel:{{ site_settings.phone_number }}" class="btn btn-primary">
+                                <i class="fas fa-phone me-2"></i>{{ site_settings.phone_number }}
+                            </a>
+                            <a href="https://wa.me/{{ site_settings.whatsapp_number|cut:'+' }}" 
+                               class="btn btn-success" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>WhatsApp Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Location Map -->
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h3 class="h4 mb-4">Our Location</h3>
+                        {% if site_settings.google_maps_embed %}
+                            {{ site_settings.google_maps_embed|safe }}
+                        {% else %}
+                            <div class="ratio ratio-4x3">
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.0679863639507!2d-2.701436684280764!3d51.50661397963571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48718e1c6cded075%3A0x8d0f0c2c8d9d7c8a!2sDean%20Rd%2C%20Avonmouth%2C%20Bristol%20BS11%208AT!5e0!3m2!1sen!2suk!4v1645000000000!5m2!1sen!2suk" 
+                                    style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                            </div>
+                        {% endif %}
+                        <p class="mt-3 mb-0">
+                            <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                            {{ site_settings.address }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5" style="background-color: var(--primary-color);">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 text-white mb-4 mb-lg-0">
+                <h2 class="display-5 fw-bold">Need Assistance?</h2>
+                <p class="lead mb-0">We're ready to help you 24/7. Contact us now for immediate support.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{% url 'pages:emergency' %}" class="btn btn-accent btn-lg me-2">Request Help</a>
+                <a href="tel:{{ site_settings.phone_number }}" class="btn btn-outline-light btn-lg">
+                    <i class="fas fa-phone me-2"></i>Call Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

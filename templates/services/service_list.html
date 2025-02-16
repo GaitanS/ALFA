@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Services - {{ site_settings.company_name }}{% endblock %}
+
+{% block content %}
+<!-- Services Header -->
+<section class="bg-primary text-white py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold">Our Services</h1>
+                <p class="lead mb-0">Professional vehicle recovery and roadside assistance services you can trust.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                <a href="{% url 'pages:emergency' %}" class="btn btn-accent btn-lg me-2">Request Service</a>
+                <a href="tel:{{ site_settings.phone_number }}" class="btn btn-outline-light btn-lg">
+                    <i class="fas fa-phone me-2"></i>Call Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services List -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4">
+            {% for service in services %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 border-0 shadow-sm service-card">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-4">
+                            <i class="{{ service.icon_class }} fa-3x" style="color: var(--primary-color);"></i>
+                        </div>
+                        <h3 class="h4 card-title mb-3">{{ service.title }}</h3>
+                        <p class="card-text mb-4">{{ service.description|truncatewords:30 }}</p>
+                        <a href="{% url 'services:service_detail' service.pk %}" class="btn btn-primary">
+                            <i class="fas fa-info-circle me-2"></i>Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p class="lead">No services available at the moment.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Coverage Area -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="display-5 fw-bold mb-4">Service Coverage Area</h2>
+                <p class="lead mb-4">We provide comprehensive vehicle recovery services across the UK, with rapid response times in our primary service areas.</p>
+                <ul class="list-unstyled">
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        Bristol & Surrounding Areas (30-60 minutes response)
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        South West England (1-2 hours response)
+                    </li>
+                    <li class="mb-3">
+                        <i class="fas fa-check-circle text-success me-2"></i>
+                        Nationwide Coverage (Response time varies by location)
+                    </li>
+                </ul>
+                <a href="{% url 'services:service_area' %}" class="btn btn-primary">View Coverage Details</a>
+            </div>
+            <div class="col-lg-6">
+                {% if site_settings.google_maps_embed %}
+                    {{ site_settings.google_maps_embed|safe }}
+                {% else %}
+                    <div class="ratio ratio-4x3">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2485.0679863639507!2d-2.701436684280764!3d51.50661397963571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48718e1c6cded075%3A0x8d0f0c2c8d9d7c8a!2sDean%20Rd%2C%20Avonmouth%2C%20Bristol%20BS11%208AT!5e0!3m2!1sen!2suk!4v1645000000000!5m2!1sen!2suk" 
+                                style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5" style="background-color: var(--primary-color);">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 text-white mb-4 mb-lg-0">
+                <h2 class="display-5 fw-bold">Need Immediate Assistance?</h2>
+                <p class="lead mb-0">We're available 24/7 to help you get back on the road.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{% url 'pages:emergency' %}" class="btn btn-accent btn-lg me-2">Request Help</a>
+                <a href="tel:{{ site_settings.phone_number }}" class="btn btn-outline-light btn-lg">
+                    <i class="fas fa-phone me-2"></i>Call Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .service-card {
+        transition: transform 0.3s ease;
+    }
+    
+    .service-card:hover {
+        transform: translateY(-10px);
+    }
+    
+    .service-card i {
+        transition: transform 0.3s ease;
+    }
+    
+    .service-card:hover i {
+        transform: scale(1.1);
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,237 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Emergency Assistance - {{ site_settings.company_name }}{% endblock %}
+
+{% block content %}
+<!-- Emergency Header -->
+<section class="bg-danger text-white py-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-8">
+                <h1 class="display-4 fw-bold">Need Immediate Help?</h1>
+                <p class="lead mb-md-0">We're available 24/7 for emergency vehicle recovery and roadside assistance.</p>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <a href="tel:{{ site_settings.phone_number }}" class="btn btn-light btn-lg">
+                    <i class="fas fa-phone me-2"></i>Call Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Actions -->
+<section class="bg-dark text-white py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mb-3 mb-md-0">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-phone-volume fa-3x me-3"></i>
+                    <div>
+                        <h4 class="mb-1">Call Us Directly</h4>
+                        <a href="tel:{{ site_settings.phone_number }}" class="text-white text-decoration-none h5">
+                            {{ site_settings.phone_number }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="d-flex align-items-center">
+                    <i class="fab fa-whatsapp fa-3x me-3"></i>
+                    <div>
+                        <h4 class="mb-1">WhatsApp Us</h4>
+                        <a href="https://wa.me/{{ site_settings.whatsapp_number|cut:'+' }}?text=Emergency:%20I%20need%20immediate%20assistance" 
+                           class="text-white text-decoration-none h5" target="_blank">
+                            Send Message
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Emergency Form -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h2 class="card-title mb-4">Request Emergency Assistance</h2>
+                        <form method="post" id="emergency-form">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    {{ form.name|as_crispy_field }}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    {{ form.phone|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                {{ form.location|as_crispy_field }}
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    {{ form.vehicle_make|as_crispy_field }}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    {{ form.vehicle_model|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                {{ form.issue_description|as_crispy_field }}
+                            </div>
+                            <button type="submit" class="btn btn-danger btn-lg">
+                                <i class="fas fa-exclamation-triangle me-2"></i>Submit Emergency Request
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mt-4 mt-lg-0">
+                <!-- Important Information -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body">
+                        <h3 class="h4 card-title">Important Information</h3>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                24/7 Emergency Response
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                Rapid Response Times
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                Professional Equipment
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                Experienced Team
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Service Area -->
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="h4 card-title">Service Area</h3>
+                        <p class="card-text">We provide emergency vehicle recovery services across the UK, with rapid response times in:</p>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2">
+                                <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                                Bristol and surrounding areas
+                            </li>
+                            <li class="mb-2">
+                                <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                                South West England
+                            </li>
+                            <li>
+                                <i class="fas fa-map-marker-alt text-danger me-2"></i>
+                                Nationwide coverage available
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What to Expect -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">What to Expect</h2>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="text-center">
+                    <div class="bg-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-clipboard-list fa-2x text-danger"></i>
+                    </div>
+                    <h4>Submit Request</h4>
+                    <p>Fill out our emergency form with your details and location</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text-center">
+                    <div class="bg-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-phone-alt fa-2x text-danger"></i>
+                    </div>
+                    <h4>Immediate Contact</h4>
+                    <p>We'll call you back immediately to confirm details</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text-center">
+                    <div class="bg-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-truck fa-2x text-danger"></i>
+                    </div>
+                    <h4>Quick Dispatch</h4>
+                    <p>Our nearest recovery vehicle will be dispatched to you</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="text-center">
+                    <div class="bg-white rounded-circle d-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-check-circle fa-2x text-danger"></i>
+                    </div>
+                    <h4>Problem Solved</h4>
+                    <p>We'll get you back on the road or to a garage safely</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('emergency-form');
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Submitting...';
+        submitBtn.disabled = true;
+        
+        // Submit form
+        fetch('{% url "contact:submit_emergency" %}', {
+            method: 'POST',
+            body: new FormData(form),
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Show success message
+                alert('Your emergency request has been submitted. We will contact you immediately.');
+                form.reset();
+            } else {
+                // Show error message
+                alert('There was an error submitting your request. Please try calling us directly.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('There was an error submitting your request. Please try calling us directly.');
+        })
+        .finally(() => {
+            // Reset button state
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        });
+    });
+});
+</script>
+{% endblock %}

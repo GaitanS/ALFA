@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ site_settings.company_name }} - 24/7 Vehicle Recovery & Roadside Assistance{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+{% if hero %}
+<section class="hero position-relative" style="min-height: 600px; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{{ hero.background_image.url }}') no-repeat center center; background-size: cover;">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-lg-8 text-white">
+                <h1 class="display-4 fw-bold mb-4">{{ hero.title }}</h1>
+                <p class="lead mb-4">{{ hero.subtitle }}</p>
+                <a href="{{ hero.cta_link }}" class="btn btn-accent btn-lg">
+                    {{ hero.cta_text }}
+                </a>
+                <a href="tel:{{ site_settings.phone_number }}" class="btn btn-outline-light btn-lg ms-2">
+                    <i class="fas fa-phone me-2"></i>Call Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% else %}
+<!-- Default Hero -->
+<section class="hero">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-lg-8 text-white">
+                <h1 class="display-4 fw-bold mb-4">24/7 Vehicle Recovery & Roadside Assistance</h1>
+                <p class="lead mb-4">Professional and reliable vehicle recovery services across the UK. We're here when you need us most.</p>
+                <a href="{% url 'pages:emergency' %}" class="btn btn-accent btn-lg">
+                    Request Assistance
+                </a>
+                <a href="tel:{{ site_settings.phone_number }}" class="btn btn-outline-light btn-lg ms-2">
+                    <i class="fas fa-phone me-2"></i>Call Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Quick Contact Info -->
+<section class="bg-dark text-white py-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-phone fa-2x me-3"></i>
+                    <div>
+                        <h5 class="mb-0">Call Us 24/7</h5>
+                        <a href="tel:{{ site_settings.phone_number }}" class="text-white text-decoration-none">
+                            {{ site_settings.phone_number }}
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0">
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-map-marker-alt fa-2x me-3"></i>
+                    <div>
+                        <h5 class="mb-0">Location</h5>
+                        <p class="mb-0">{{ site_settings.address }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="d-flex align-items-center">
+                    <i class="fab fa-whatsapp fa-2x me-3"></i>
+                    <div>
+                        <h5 class="mb-0">WhatsApp</h5>
+                        <a href="https://wa.me/{{ site_settings.whatsapp_number|cut:'+' }}?text=I%20need%20assistance" 
+                           class="text-white text-decoration-none" target="_blank">
+                            Message Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Overview -->
+<section class="py-5">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col text-center">
+                <h2 class="display-5 fw-bold">Our Services</h2>
+                <p class="lead">Professional vehicle recovery and roadside assistance services you can trust.</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            {% for service in services %}
+            <div class="col-md-4">
+                <div class="card service-card h-100 border-0 shadow-sm">
+                    <div class="card-body text-center d-flex flex-column">
+                        <i class="{{ service.icon_class }} service-icon"></i>
+                        <h3 class="h4 card-title mb-3">{{ service.title }}</h3>
+                        <p class="card-text flex-grow-1">{{ service.description|truncatewords:30 }}</p>
+                        <div class="mt-auto">
+                            <a href="{% url 'services:service_detail' service.pk %}" class="btn btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="row mt-5">
+            <div class="col text-center">
+                <a href="{% url 'services:service_list' %}" class="btn btn-lg btn-primary">View All Services</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials -->
+{% if testimonials %}
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col text-center">
+                <h2 class="display-5 fw-bold">What Our Customers Say</h2>
+                <p class="lead">Don't just take our word for it - hear from our satisfied customers.</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            {% for testimonial in testimonials %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            {% for i in "12345"|make_list %}
+                            <i class="fas fa-star{% if forloop.counter <= testimonial.rating %} text-warning{% else %} text-muted{% endif %}"></i>
+                            {% endfor %}
+                        </div>
+                        <p class="card-text">{{ testimonial.content }}</p>
+                        <footer class="blockquote-footer mt-3">
+                            {{ testimonial.name }}
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Call to Action -->
+<section class="py-5 bg-primary">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 text-white mb-4 mb-lg-0">
+                <h2 class="display-5 fw-bold">Need Immediate Assistance?</h2>
+                <p class="lead mb-0">We're available 24/7 to help you get back on the road.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{% url 'pages:emergency' %}" class="btn btn-accent btn-lg me-2">Request Help</a>
+                <a href="tel:{{ site_settings.phone_number }}" class="btn btn-outline-light btn-lg">Call Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .hero {
+        margin-top: -56px; /* Offset for navbar height */
+    }
+    
+    .card {
+        transition: transform 0.3s ease;
+    }
+    
+    .card:hover {
+        transform: translateY(-5px);
+    }
+</style>
+{% endblock %}

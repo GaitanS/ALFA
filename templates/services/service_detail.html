@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+{% block title %}{{ service.title }} - {{ site_settings.company_name }}{% endblock %}
+
+{% block content %}
+<!-- Service Header -->
+<section class="bg-primary text-white py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold">{{ service.title }}</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="{% url 'pages:home' %}" class="text-white">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'services:service_list' %}" class="text-white">Services</a></li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">{{ service.title }}</li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
+                <a href="{% url 'pages:emergency' %}" class="btn btn-accent btn-lg me-2">Request Service</a>
+                <a href="tel:{{ site_settings.phone_number }}" class="btn btn-outline-light btn-lg">
+                    <i class="fas fa-phone me-2"></i>Call Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Service Content -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Main Content -->
+            <div class="col-lg-8 mb-4 mb-lg-0">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="text-center mb-4">
+                            <i class="{{ service.icon_class }} fa-4x" style="color: var(--primary-color);"></i>
+                        </div>
+                        
+                        <div class="service-description">
+                            {{ service.description|linebreaks }}
+                        </div>
+                        
+                        <!-- Key Features -->
+                        <div class="mt-5">
+                            <h2 class="h4 mb-4">Key Features</h2>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-success fa-2x me-3"></i>
+                                        <div>24/7 Availability</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-success fa-2x me-3"></i>
+                                        <div>Professional Equipment</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-success fa-2x me-3"></i>
+                                        <div>Experienced Team</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-check-circle text-success fa-2x me-3"></i>
+                                        <div>Quick Response Time</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="card border-0 shadow-sm mt-4">
+                    <div class="card-body p-4">
+                        <h2 class="h4 mb-4">Enquire About This Service</h2>
+                        <form method="post" id="contact-form" action="{% url 'contact:submit_contact' %}" novalidate>
+                            {% csrf_token %}
+                            {% for field in contact_form %}
+                                <div class="form-floating mb-3">
+                                    {% if field.field.widget.input_type == 'select' %}
+                                        {{ field|add_class:"form-select"|attr:"placeholder:Select" }}
+                                    {% elif field.field.widget.input_type == 'textarea' %}
+                                        {{ field|add_class:"form-control"|attr:"style:height: 100px"|attr:"placeholder: " }}
+                                    {% else %}
+                                        {{ field|add_class:"form-control"|attr:"placeholder: " }}
+                                    {% endif %}
+                                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                                    {% if field.help_text %}
+                                        <div class="form-text text-muted small">{{ field.help_text }}</div>
+                                    {% endif %}
+                                    {% if field.errors %}
+                                        <div class="invalid-feedback d-block">{{ field.errors|join:", " }}</div>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                            <div class="mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg w-100">
+                                    <i class="fas fa-paper-plane me-2"></i>Send Enquiry
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <!-- Quick Contact -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-body p-4">
+                        <h3 class="h4 mb-4">Need Immediate Help?</h3>
+                        <div class="d-grid gap-2">
+                            <a href="tel:{{ site_settings.phone_number }}" class="btn btn-primary">
+                                <i class="fas fa-phone me-2"></i>{{ site_settings.phone_number }}
+                            </a>
+                            <a href="https://wa.me/{{ site_settings.whatsapp_number|cut:'+' }}" 
+                               class="btn btn-success" target="_blank">
+                                <i class="fab fa-whatsapp me-2"></i>WhatsApp Us
+                            </a>
+                            <a href="{% url 'pages:emergency' %}" class="btn btn-danger">
+                                <i class="fas fa-exclamation-triangle me-2"></i>Emergency Request
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Related Services -->
+                {% if related_services %}
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h3 class="h4 mb-4">Related Services</h3>
+                        <div class="list-group list-group-flush">
+                            {% for related in related_services %}
+                            <a href="{% url 'services:service_detail' related.pk %}" 
+                               class="list-group-item list-group-item-action d-flex align-items-center">
+                                <i class="{{ related.icon_class }} me-3"></i>
+                                {{ related.title }}
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mb-4 mb-lg-0">
+                <h2 class="display-5 fw-bold">Ready to Get Started?</h2>
+                <p class="lead mb-0">Contact us now for professional vehicle recovery services.</p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+                <a href="{% url 'pages:emergency' %}" class="btn btn-primary btn-lg me-2">Request Service</a>
+                <a href="tel:{{ site_settings.phone_number }}" class="btn btn-outline-primary btn-lg">
+                    <i class="fas fa-phone me-2"></i>Call Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
