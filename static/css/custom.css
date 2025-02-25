@@ -79,13 +79,227 @@ th {
     color: #ffcc02 !important;
     font-weight: bold;
     font-size: 2rem;
+    white-space: nowrap;
+    display: inline-block;
+}
+
+.navbar-brand > .navbar-brand-fleet {
+    color: #ffcc02 !important;
+    font-weight: bold;
+    font-size: 2rem;
+    white-space: nowrap;
+    display: inline-block;
 }
 
 .navbar-brand > .navbar-brand-partnership {
     color: black !important;
-    font-size: 1.5rem;
-    font-weight:bold;
-    font-style: italic
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-style: italic;
+    white-space: nowrap;
+    display: block;
+}
+
+/* Hide the "& FLEET SUPPORT" text on smaller screens */
+@media (max-width: 991.98px) {
+    .navbar-brand > .navbar-brand-fleet {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-brand > .navbar-brand-text {
+        font-size: 2.4rem !important;
+        white-space: nowrap;
+    }
+
+    .navbar-brand > .navbar-brand-partnership {
+        font-size: 2rem !important;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 350px) {
+    .navbar-brand > .navbar-brand-text {
+        font-size: 1.3rem !important;
+        white-space: nowrap;
+    }
+
+    .navbar-brand > .navbar-brand-partnership {
+        font-size: 0.9rem !important;
+        white-space: nowrap;
+    }
+}
+
+/* Add a media query for even smaller screens, like some smart watches */
+@media (max-width: 320px) {
+    .navbar-brand > .navbar-brand-text {
+        font-size: 1.1rem !important;
+        white-space: nowrap;
+    }
+
+    .navbar-brand > .navbar-brand-partnership {
+        font-size: 0.8rem !important;
+        white-space: nowrap;
+    }
+}
+
+/* Adjustments for tablets and larger mobile devices */
+@media (min-width: 768px) and (max-width: 991px) {
+    .navbar-brand > .navbar-brand-text {
+        font-size: 1.7rem !important;
+        white-space: nowrap;
+    }
+
+    .navbar-brand > .navbar-brand-partnership {
+        font-size: 1.1rem !important;
+        white-space: nowrap;
+    }
+}
+
+/* Adjustments for large devices */
+@media (min-width: 992px) {
+    .navbar-brand > .navbar-brand-text {
+        font-size: 2rem !important;
+        white-space: nowrap;
+    }
+
+    .navbar-brand > .navbar-brand-partnership {
+        font-size: 1.2rem !important;
+        white-space: nowrap;
+    }
+}
+
+/* Extra small devices (phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .navbar-brand > .navbar-brand-text {
+    font-size: 1.5rem !important;
+    white-space: nowrap;
+  }
+  .navbar-brand > .navbar-brand-partnership {
+    font-size: 1rem !important;
+    white-space: nowrap;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .navbar-brand > .navbar-brand-text {
+    font-size: 1.7rem !important;
+    white-space: nowrap;
+  }
+  .navbar-brand > .navbar-brand-partnership {
+    font-size: 1.1rem !important;
+    white-space: nowrap;
+  }
+}
+
+/* Navbar brand container for responsive layout */
+.navbar-brand-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.navbar-brand {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Apply scaling to the navbar brand text for smaller screens */
+@media (max-width: 575.98px) {
+  .navbar-brand > .navbar-brand-text {
+    transform: scale(0.7); /* Adjust the scaling factor as needed */
+    transform-origin: center top;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-brand > .navbar-brand-partnership {
+    transform: scale(0.7); /* Adjust the scaling factor as needed */
+    transform-origin: center top;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Even more aggressive scaling for very small screens */
+@media (max-width: 400px) {
+  .navbar-brand > .navbar-brand-text {
+    transform: scale(1.5);
+    transform-origin: center top;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar-brand > .navbar-brand-partnership {
+    transform: scale(1);
+    transform-origin: center top;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* Extreme scaling for the smallest screens */
+@media (max-width: 375px) {
+  .navbar-brand > .navbar-brand-text {
+    transform: scale(0.45);
+    transform-origin: center top;
+    text-align: center;
+  }
+
+  .navbar-brand > .navbar-brand-partnership {
+    transform: scale(0.45);
+    transform-origin: center top;
+    text-align: center;
+  }
+}
+
+/* Responsive navbar toggler */
+@media (max-width: 991.98px) {
+  .navbar-brand-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .navbar-brand {
+    text-align: center;
+    margin-bottom: 0;
+  }
+  
+  .navbar-toggler {
+    margin: 10px auto;
+  }
+  
+  .navbar-collapse {
+    text-align: center;
+  }
+  
+  .navbar-nav {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  .navbar-nav .nav-item {
+    text-align: center;
+    margin: 5px 0;
+  }
+  
+.navbar-nav .nav-link.btn {
+    display: block;
+    width: 100%;
+    margin: 10px auto;
+    background-color: var(--accent-color);
+    color: black !important;
+    border-radius: 0;
+  }
 }
 
 .navbar-logo {
