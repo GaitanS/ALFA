@@ -71,6 +71,23 @@ th {
     color: white !important;
 }
 
+.navbar-nav .nav-link:hover {
+    color: #ffcc02 !important;
+}
+
+.navbar-brand > .navbar-brand-text {
+    color: #ffcc02 !important;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.navbar-brand > .navbar-brand-partnership {
+    color: black !important;
+    font-size: 1.5rem;
+    font-weight:bold;
+    font-style: italic
+}
+
 .navbar-logo {
     height: 60px;
     border-radius: 10px;
