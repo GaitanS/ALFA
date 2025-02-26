@@ -25,8 +25,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     # Third party apps
-    'ckeditor',
     'crispy_forms',
+    'ckeditor_5',
     'crispy_bootstrap5',
     'django.forms.widgets',
     'widget_tweaks',
@@ -141,6 +141,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Crispy Forms
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+CKEDITOR_5_CONFIGS = {
+    'default': {
+        'toolbar': ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'undo', 'redo', 'codeBlock'],
+    }
+}
+
 CRISPY_CLASS_CONVERTERS = {
     'textinput': 'form-control',
     'urlinput': 'form-control',
@@ -152,20 +159,6 @@ CRISPY_CLASS_CONVERTERS = {
     'select': 'form-select',
 }
 
-# CKEditor
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'Custom',
-        'toolbar_Custom': [
-            ['Bold', 'Italic', 'Underline'],
-            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
-            ['Link', 'Unlink'],
-            ['RemoveFormat', 'Source']
-        ],
-        'height': 300,
-        'width': '100%',
-    },
-}
 
 # Email settings (update these with your email settings)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
