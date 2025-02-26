@@ -1,24 +1,47 @@
 // Cookie Management
 document.addEventListener('DOMContentLoaded', function() {
+    // Function to set cookie preferences
+    function setCookiePreferences(preferences) {
+        localStorage.setItem('cookie_preferences', JSON.stringify(preferences));
+    }
+
+    // Function to get cookie preferences
+    function getCookiePreferences() {
+        const prefs = localStorage.getItem('cookie_preferences');
+        return prefs ? JSON.parse(prefs) : { essential: true, analytics: false, marketing: false };
+    }
+
     // Show cookie banner if consent not given
-    if (!localStorage.getItem('cookie_consent')) {
+    if (!localStorage.getItem('cookie_preferences')) {
         document.getElementById('cookie-banner').style.display = 'block';
     }
 
     // Handle cookie acceptance
     document.getElementById('accept-cookies')?.addEventListener('click', function() {
-        localStorage.setItem('cookie_consent', 'true');
+        const analyticsEnabled = document.getElementById('analytics-cookies').checked;
+        const marketingEnabled = document.getElementById('marketing-cookies').checked;
+        setCookiePreferences({ essential: true, analytics: analyticsEnabled, marketing: marketingEnabled });
         document.getElementById('cookie-banner').style.display = 'none';
-        
-        // Send acceptance to server
+
+        // Send acceptance to server (example)
         fetch('/api/accept-cookies/', {
             method: 'POST',
             headers: {
                 'X-CSRFToken': document.querySelector('meta[name="csrf-token"]').content,
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({accepted: true})
+            body: JSON.stringify({
+                accepted: true,
+                analytics: analyticsEnabled,
+                marketing: marketingEnabled
+            })
         });
+    });
+
+    // Handle cookie decline
+    document.getElementById('decline-cookies')?.addEventListener('click', function() {
+        setCookiePreferences({ essential: true, analytics: false, marketing: false });
+        document.getElementById('cookie-banner').style.display = 'none';
     });
 });
 
