@@ -163,7 +163,7 @@ CKEDITOR_CONFIGS = {
 
 # Email settings (update these with your email settings)
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEFAULT_FROM_EMAIL = 'noreply@alfarecovery.co.uk'
+DEFAULT_FROM_EMAIL = 'alfarecoveryltd@gmail.com'
 
 # Cache Control Settings
 CACHE_MIDDLEWARE_SECONDS = 31536000  # 1 year
