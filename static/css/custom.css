@@ -104,8 +104,9 @@ th {
   }
   
   /* Hide Fleet Text on Smaller Screens */
-  @media (max-width: 991.98px) {
-    .navbar-brand > .navbar-brand-fleet {
+@media (max-width: 991.98px) {
+    .navbar-brand > .navbar-brand-fleet,
+    .navbar-brand > .fleet-support-text {
       display: none;
     }
   }
@@ -117,12 +118,6 @@ th {
     }
     .navbar-brand > .navbar-brand-partnership {
       transform: scale(1);
-    }
-  }
-  @media (max-width: 375px) {
-    .navbar-brand > .navbar-brand-text,
-    .navbar-brand > .navbar-brand-partnership {
-      transform: scale(0.45);
     }
   }
   
