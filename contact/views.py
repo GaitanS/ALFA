@@ -51,7 +51,7 @@ def submit_contact(request):
                 message=strip_tags(html_message),
                 html_message=html_message,
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=[settings.DEFAULT_FROM_EMAIL],  # Send to admin
+                recipient_list=['blackmaster92@gmail.com'],  # Send to admin
                 fail_silently=False,
             )
             

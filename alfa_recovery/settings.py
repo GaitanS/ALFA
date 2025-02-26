@@ -162,7 +162,12 @@ CKEDITOR_CONFIGS = {
 }
 
 # Email settings (update these with your email settings)
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'alfarecoveryltd@gmail.com'
+EMAIL_HOST_PASSWORD = 'agxi xpxi lsim vgxe'
 DEFAULT_FROM_EMAIL = 'alfarecoveryltd@gmail.com'
 
 # Cache Control Settings
