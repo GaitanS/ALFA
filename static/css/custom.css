@@ -167,6 +167,7 @@ th {
     .navbar-brand > .navbar-brand-partnership {
         font-size: 1.2rem !important;
         white-space: nowrap;
+        text-align: left;
     }
 }
 
