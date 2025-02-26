@@ -29,240 +29,133 @@ body {
     print-color-adjust: exact;
 }
 
+/* Table header */
 th {
     text-align: -webkit-match-parent;
     text-align: match-parent;
-}
-
-/* Hero Section */
-.hero {
+  }
+  
+  /* Hero Section */
+  .hero {
     position: relative;
     min-height: 80vh;
-    background-size: cover;
-    background-position: center;
+    background: center/cover no-repeat;
     margin-top: -56px;
     display: flex;
     align-items: center;
     z-index: 1;
-}
-
-.hero::before {
+  }
+  
+  .hero::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: linear-gradient(135deg, #820000 0%, rgba(0, 0, 0, 0.95) 100%);
+    inset: 0;
+    background: linear-gradient(135deg, #820000 0%, rgba(0,0,0,0.95) 100%);
     z-index: -1;
-}
-
-.hero .container {
+  }
+  
+  .hero .container {
     position: relative;
     z-index: 2;
-}
-
-/* Navigation */
-.navbar {
+  }
+  
+  /* Navigation Base */
+  .navbar {
     background-color: var(--primary-color);
-}
-
-.navbar-brand, .nav-link {
+  }
+  
+  .navbar-brand,
+  .nav-link {
     color: white !important;
-}
-
-.navbar-nav .nav-link:hover {
+  }
+  
+  .navbar-nav .nav-link:hover {
     color: #ffcc02 !important;
-}
-
-.navbar-brand > .navbar-brand-text {
-    color: #ffcc02 !important;
-    font-weight: bold;
-    font-size: 2rem;
-    white-space: nowrap;
-    display: inline-block;
-}
-
-.navbar-brand > .navbar-brand-fleet {
+  }
+  
+  /* Navbar Brand Elements */
+  .navbar-brand > .navbar-brand-text,
+  .navbar-brand > .navbar-brand-fleet {
     color: #ffcc02 !important;
     font-weight: bold;
-    font-size: 2rem;
     white-space: nowrap;
     display: inline-block;
-}
-
-.navbar-brand > .navbar-brand-partnership {
+  }
+  
+  .navbar-brand > .navbar-brand-partnership {
     color: black !important;
-    font-size: 1.2rem;
     font-weight: bold;
     font-style: italic;
     white-space: nowrap;
     display: block;
-}
-
-/* Hide the "& FLEET SUPPORT" text on smaller screens */
-@media (max-width: 991.98px) {
+  }
+  
+  /* Mobile-First Defaults for Navbar Brand */
+  .navbar-brand > .navbar-brand-text {
+    font-size: 1.5rem;
+    text-align: center;
+    transform-origin: center top;
+  }
+  
+  .navbar-brand > .navbar-brand-partnership {
+    font-size: 1rem;
+    text-align: center;
+    transform-origin: center top;
+  }
+  
+  /* Hide Fleet Text on Smaller Screens */
+  @media (max-width: 991.98px) {
     .navbar-brand > .navbar-brand-fleet {
-        display: none;
+      display: none;
     }
-}
-
-@media (max-width: 768px) {
+  }
+  
+  /* Scaling Adjustments for Very Small Screens */
+  @media (max-width: 400px) {
     .navbar-brand > .navbar-brand-text {
-        font-size: 2.4rem !important;
-        white-space: nowrap;
+      transform: scale(1.5);
     }
-
     .navbar-brand > .navbar-brand-partnership {
-        font-size: 2rem !important;
-        white-space: nowrap;
+      transform: scale(1);
     }
-}
-
-@media (max-width: 350px) {
+  }
+  @media (max-width: 375px) {
+    .navbar-brand > .navbar-brand-text,
+    .navbar-brand > .navbar-brand-partnership {
+      transform: scale(0.45);
+    }
+  }
+  
+  /* Font Size Adjustments at Different Breakpoints */
+  @media (min-width: 576px) and (max-width: 767.98px) {
     .navbar-brand > .navbar-brand-text {
-        font-size: 1.3rem !important;
-        white-space: nowrap;
+      font-size: 1.7rem !important;
     }
-
     .navbar-brand > .navbar-brand-partnership {
-        font-size: 0.9rem !important;
-        white-space: nowrap;
+      font-size: 1.1rem !important;
     }
-}
-
-/* Add a media query for even smaller screens, like some smart watches */
-@media (max-width: 320px) {
+  }
+  
+  @media (min-width: 768px) and (max-width: 991px) {
     .navbar-brand > .navbar-brand-text {
-        font-size: 1.1rem !important;
-        white-space: nowrap;
+      font-size: 1.7rem !important;
     }
-
     .navbar-brand > .navbar-brand-partnership {
-        font-size: 0.8rem !important;
-        white-space: nowrap;
+      font-size: 1.1rem !important;
     }
-}
-
-/* Adjustments for tablets and larger mobile devices */
-@media (min-width: 768px) and (max-width: 991px) {
+  }
+  
+  @media (min-width: 992px) {
     .navbar-brand > .navbar-brand-text {
-        font-size: 1.7rem !important;
-        white-space: nowrap;
+      font-size: 2rem !important;
     }
-
     .navbar-brand > .navbar-brand-partnership {
-        font-size: 1.1rem !important;
-        white-space: nowrap;
+      font-size: 1.2rem !important;
+      text-align: left;
     }
-}
-
-/* Adjustments for large devices */
-@media (min-width: 992px) {
-    .navbar-brand > .navbar-brand-text {
-        font-size: 2rem !important;
-        white-space: nowrap;
-    }
-
-    .navbar-brand > .navbar-brand-partnership {
-        font-size: 1.2rem !important;
-        white-space: nowrap;
-        text-align: left;
-    }
-}
-
-/* Extra small devices (phones, less than 576px) */
-@media (max-width: 575.98px) {
-  .navbar-brand > .navbar-brand-text {
-    font-size: 1.5rem !important;
-    white-space: nowrap;
   }
-  .navbar-brand > .navbar-brand-partnership {
-    font-size: 1rem !important;
-    white-space: nowrap;
-  }
-}
-
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .navbar-brand > .navbar-brand-text {
-    font-size: 1.7rem !important;
-    white-space: nowrap;
-  }
-  .navbar-brand > .navbar-brand-partnership {
-    font-size: 1.1rem !important;
-    white-space: nowrap;
-  }
-}
-
-/* Navbar brand container for responsive layout */
-.navbar-brand-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.navbar-brand {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-/* Apply scaling to the navbar brand text for smaller screens */
-@media (max-width: 575.98px) {
-  .navbar-brand > .navbar-brand-text {
-    transform: scale(0.7); /* Adjust the scaling factor as needed */
-    transform-origin: center top;
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-  }
-
-  .navbar-brand > .navbar-brand-partnership {
-    transform: scale(0.7); /* Adjust the scaling factor as needed */
-    transform-origin: center top;
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-  }
-}
-
-/* Even more aggressive scaling for very small screens */
-@media (max-width: 400px) {
-  .navbar-brand > .navbar-brand-text {
-    transform: scale(1.5);
-    transform-origin: center top;
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-  }
-
-  .navbar-brand > .navbar-brand-partnership {
-    transform: scale(1);
-    transform-origin: center top;
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-  }
-}
-
-/* Extreme scaling for the smallest screens */
-@media (max-width: 375px) {
-  .navbar-brand > .navbar-brand-text {
-    transform: scale(0.45);
-    transform-origin: center top;
-    text-align: center;
-  }
-
-  .navbar-brand > .navbar-brand-partnership {
-    transform: scale(0.45);
-    transform-origin: center top;
-    text-align: center;
-  }
-}
-
-/* Responsive navbar toggler */
-@media (max-width: 991.98px) {
+  
+  /* Responsive Navbar Layout */
   .navbar-brand-container {
     display: flex;
     flex-direction: column;
@@ -272,48 +165,46 @@ th {
   
   .navbar-brand {
     text-align: center;
-    margin-bottom: 0;
+    margin-bottom: 10px;
   }
   
-  .navbar-toggler {
-    margin: 10px auto;
+  @media (max-width: 991.98px) {
+    .navbar-toggler {
+      margin: 10px auto;
+    }
+    .navbar-collapse {
+      text-align: center;
+    }
+    .navbar-nav {
+      margin: 0 auto !important;
+    }
+    .navbar-nav .nav-item {
+      text-align: center;
+      margin: 5px 0;
+    }
+    .navbar-nav .nav-link.btn {
+      display: block;
+      width: 100%;
+      margin: 10px auto;
+      background-color: var(--accent-color);
+      color: black !important;
+      border-radius: 0;
+    }
   }
   
-  .navbar-collapse {
-    text-align: center;
-  }
-  
-  .navbar-nav {
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-  
-  .navbar-nav .nav-item {
-    text-align: center;
-    margin: 5px 0;
-  }
-  
-.navbar-nav .nav-link.btn {
-    display: block;
-    width: 100%;
-    margin: 10px auto;
-    background-color: var(--accent-color);
-    color: black !important;
-    border-radius: 0;
-  }
-}
-
-.navbar-logo {
+  /* Navbar Logo */
+  .navbar-logo {
     height: 60px;
     border-radius: 10px;
     padding: 2px;
     background-color: rgba(255, 255, 255, 0.1);
     transition: transform 0.3s ease;
-}
-
-.navbar-brand:hover .navbar-logo {
+  }
+  
+  .navbar-brand:hover .navbar-logo {
     transform: scale(1.05);
-}
+  }
+  
 
 /* Buttons */
 .btn-primary {
