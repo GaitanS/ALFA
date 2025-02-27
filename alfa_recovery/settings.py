@@ -13,7 +13,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['alfa-recovery.pythonanywhere.com']
+ALLOWED_HOSTS = ['www.alfarecovery.co.uk','alfarecovery.co.uk']
 
 # Application definition
 INSTALLED_APPS = [
@@ -98,8 +98,15 @@ WSGI_APPLICATION = 'alfa_recovery.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'alfarecovery$default',
+        'USER': 'alfarecovery',
+        'PASSWORD': 'recuperaredetiruri',
+        'HOST': 'alfarecovery.mysql.eu.pythonanywhere-services.com',
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
     }
 }
 
@@ -126,7 +133,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = 'static/'
-STATIC_ROOT = '/home/alfarecovery/alfa-recovery.pythonanywhere.com/staticfiles'
+STATIC_ROOT = '/home/alfarecovery/staticfiles'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
@@ -142,10 +149,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-CKEDITOR_5_CONFIGS = {
+# CKEditor configuration
+CKEDITOR_CONFIGS = {
     'default': {
-        'toolbar': ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'undo', 'redo', 'codeBlock'],
-    }
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ],
+        'height': 300,
+        'width': '100%',
+    },
 }
 
 CRISPY_CLASS_CONVERTERS = {

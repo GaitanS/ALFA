@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}Server Error - {{ site_settings.company_name }}{% endblock %}
+{% block og_title %}Server Error - {{ site_settings.company_name }}{% endblock %}
 
 {% block content %}
 <section class="py-5">
@@ -52,6 +53,7 @@
         </div>
     </div>
 </section>
+{% endblock %}
 
 {% block extra_js %}
 <script>
@@ -60,5 +62,4 @@
         window.location.reload();
     }, 30000);
 </script>
-{% endblock %}
 {% endblock %}
