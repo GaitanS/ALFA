@@ -7,22 +7,25 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     
+    # CKEditor 5 URLs
+    path('ckeditor5/', include('django_ckeditor_5.urls')),
+    
     # Cookie policy page
     path('cookie-policy/', TemplateView.as_view(
         template_name='pages/cookie_policy.html',
-        extra_context={'title': 'Cookie Policy'}
+        extra_context={'page_title': 'Cookie Policy'}
     ), name='cookie_policy'),
     
     # Privacy policy page
     path('privacy-policy/', TemplateView.as_view(
         template_name='pages/privacy_policy.html',
-        extra_context={'title': 'Privacy Policy'}
+        extra_context={'page_title': 'Privacy Policy'}
     ), name='privacy_policy'),
     
     # Terms and conditions page
     path('terms/', TemplateView.as_view(
         template_name='pages/terms.html',
-        extra_context={'title': 'Terms & Conditions'}
+        extra_context={'page_title': 'Terms & Conditions'}
     ), name='terms'),
     
     # Include app URLs
