@@ -9,3 +9,4 @@ django-widget-tweaks>=1.4.12
 django-allauth>=0.54.0
 python-dotenv>=1.0.0
 crispy-bootstrap5
+mysqlclient
