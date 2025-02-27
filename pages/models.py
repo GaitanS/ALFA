@@ -1,5 +1,4 @@
 from django.db import models
-from ckeditor.fields import RichTextField
 
 class Page(models.Model):
     TEMPLATE_CHOICES = [
@@ -13,7 +12,7 @@ class Page(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(unique=True)
     template = models.CharField(max_length=100, choices=TEMPLATE_CHOICES)
-    content = RichTextField()
+    content = models.TextField()
     meta_description = models.TextField(max_length=160, blank=True)
     meta_keywords = models.CharField(max_length=255, blank=True)
     is_active = models.BooleanField(default=True)

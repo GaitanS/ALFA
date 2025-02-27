@@ -26,8 +26,6 @@ INSTALLED_APPS = [
     
     # Third party apps
     'crispy_forms',
-    'ckeditor',
-    'ckeditor_5',
     'crispy_bootstrap5',
     'django.forms.widgets',
     'widget_tweaks',
@@ -150,41 +148,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-# CKEditor configuration
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': 'Custom',
-        'toolbar_Custom': [
-            ['Bold', 'Italic', 'Underline'],
-            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
-            ['Link', 'Unlink'],
-            ['RemoveFormat', 'Source']
-        ],
-        'height': 300,
-        'width': '100%',
-    },
-}
-
-# CKEditor 5 configuration
-CKEDITOR_5_CONFIGS = {
-    'default': {
-        'toolbar': ['heading', '|', 'bold', 'italic', 'link',
-                   'bulletedList', 'numberedList', 'blockQuote', 'imageUpload'],
-        'heading': {
-            'options': [
-                {'model': 'paragraph', 'title': 'Paragraph', 'class': 'ck-heading_paragraph'},
-                {'model': 'heading1', 'view': 'h1', 'title': 'Heading 1', 'class': 'ck-heading_heading1'},
-                {'model': 'heading2', 'view': 'h2', 'title': 'Heading 2', 'class': 'ck-heading_heading2'},
-                {'model': 'heading3', 'view': 'h3', 'title': 'Heading 3', 'class': 'ck-heading_heading3'}
-            ]
-        }
-    }
-}
-
-# CKEditor 5 media configuration
-CKEDITOR_5_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
-CKEDITOR_5_UPLOAD_PATH = 'uploads/ckeditor5/'
-
 CRISPY_CLASS_CONVERTERS = {
     'textinput': 'form-control',
     'urlinput': 'form-control',
@@ -195,7 +158,6 @@ CRISPY_CLASS_CONVERTERS = {
     'passwordinput': 'form-control',
     'select': 'form-select',
 }
-
 
 # Email settings (update these with your email settings)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

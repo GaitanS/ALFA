@@ -7,9 +7,6 @@ from django.views.generic import TemplateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     
-    # CKEditor 5 URLs
-    path('ckeditor5/', include('django_ckeditor_5.urls')),
-    
     # Cookie policy page
     path('cookie-policy/', TemplateView.as_view(
         template_name='pages/cookie_policy.html',
