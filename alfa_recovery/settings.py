@@ -26,7 +26,7 @@ INSTALLED_APPS = [
     
     # Third party apps
     'crispy_forms',
-    'ckeditor_5',
+    'ckeditor',
     'crispy_bootstrap5',
     'django.forms.widgets',
     'widget_tweaks',
