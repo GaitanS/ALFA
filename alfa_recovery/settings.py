@@ -11,9 +11,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['www.alfarecovery.co.uk','alfarecovery.co.uk']
+ALLOWED_HOSTS = []
 
 # Application definition
 INSTALLED_APPS = [
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+    # 'django.middleware.security.SecurityMiddleware', # trebuie decomentat cand incarc
     'django.contrib.sessions.middleware.SessionMiddleware',
     'core.middleware.CacheControlMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -49,15 +49,13 @@ MIDDLEWARE = [
 ]
 
 # Security and Content Type Settings
-SECURE_CONTENT_TYPE_NOSNIFF = True
-SECURE_BROWSER_XSS_FILTER = True
+SECURE_CONTENT_TYPE_NOSNIFF = False
+SECURE_BROWSER_XSS_FILTER = False
 X_FRAME_OPTIONS = 'DENY'
-SECURE_HSTS_SECONDS = 31536000
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_SSL_REDIRECT = True
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
-SECURE_HSTS_PRELOAD = True
+SECURE_HSTS_SECONDS = 0 # trebuie 31536000 cand incarc
+SECURE_HSTS_INCLUDE_SUBDOMAINS = False
+SECURE_SSL_REDIRECT = False # trebuie true cand incarc
+SECURE_HSTS_PRELOAD = False # trebuie true cand incarc
 
 # Content Security Policy
 CSP_DEFAULT_SRC = ("'self'",)
@@ -67,10 +65,10 @@ CSP_IMG_SRC = ("'self'", "data:", "https:")
 CSP_FONT_SRC = ("'self'", "https://cdnjs.cloudflare.com")
 
 # Cookie settings
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_HTTPONLY = True
-CSRF_COOKIE_HTTPONLY = True
+SESSION_COOKIE_SECURE = False # trebuie true cand incarc
+CSRF_COOKIE_SECURE = False # trebuie true cand incarc
+SESSION_COOKIE_HTTPONLY = False # trebuie true cand incarc
+CSRF_COOKIE_HTTPONLY = False # trebuie true cand incarc
 SESSION_COOKIE_SAMESITE = 'Lax'
 CSRF_COOKIE_SAMESITE = 'Lax'
 
@@ -95,19 +93,31 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'alfa_recovery.wsgi.application'
 
+# trebuie decomentat cand incarc
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'alfarecovery$default',
+#         'USER': 'alfarecovery',
+#         'PASSWORD': 'recuperaredetiruri',
+#         'HOST': 'alfarecovery.mysql.eu.pythonanywhere-services.com',
+#         'PORT': '3306',
+#         'OPTIONS': {
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+#         }
+#     }
+# }
+
+# trebuie comentat cand incarc
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'alfarecovery$default',
-        'USER': 'alfarecovery',
-        'PASSWORD': 'recuperaredetiruri',
-        'HOST': 'alfarecovery.mysql.eu.pythonanywhere-services.com',
-        'PORT': '3306',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
