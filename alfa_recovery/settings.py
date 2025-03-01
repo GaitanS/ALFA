@@ -13,7 +13,11 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< Updated upstream
 ALLOWED_HOSTS = []
+=======
+ALLOWED_HOSTS = ['www.alfarecovery.co.uk','alfarecovery.co.uk','alfarecovery.eu.pythonanywhere.com']
+>>>>>>> Stashed changes
 
 # Application definition
 INSTALLED_APPS = [
@@ -23,13 +27,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     # Third party apps
     'crispy_forms',
     'crispy_bootstrap5',
     'django.forms.widgets',
     'widget_tweaks',
-    
+
     # Local apps
     'core.apps.CoreConfig',
     'pages.apps.PagesConfig',
