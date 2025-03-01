@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}{{ site_settings.company_name }} - 24/7 Vehicle Recovery & Roadside Assistance{% endblock %}
-{% block og_title %}{{ site_settings.company_name }} - 24/7 Vehicle Recovery & Roadside Assistance{% endblock %}
+{% block title %}{{ site_settings.company_name }} - 24/7 Comercial Vehicle Recovery & Roadside Assistance{% endblock %}
+{% block og_title %}{{ site_settings.company_name }} - 24/7 Comercial Vehicle Recovery & Roadside Assistance{% endblock %}
 
 {% block content %}
 <!-- Hero Section -->
@@ -17,7 +17,7 @@
                     {{ hero.cta_text }}
                 </a>
                 <a href="tel:{{ site_settings.phone_number }}" class="btn btn-outline-light btn-lg ms-2">
-                    <i class="fas fa-phone me-2"></i>Call Now
+                    <i class="fas fa-phone me-2 "></i>Call Now
                 </a>
             </div>
             <div class="col-lg-6">
@@ -30,15 +30,15 @@
 <!-- Default Hero -->
 <section class="hero">
     <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center ">
             <div class="col-lg-6 text-white hero-content p-1">
-                <h1 class="display-4 fw-bold mb-4">24/7 Vehicle Recovery & Roadside Assistance</h1>
-                <p class="lead mb-4">Professional and reliable vehicle recovery services across the UK. We're here when you need us most.</p>
+                <h1 class="display-4 fw-bold mb-4 shadow3d">24/7 Comercial Vehicle Recovery & Roadside Assistance</h1>
+                <p class="lead mb-4 shadow3d">Professional and reliable vehicle recovery services across the UK. We're here when you need us most.</p>
                 <a href="{% url 'pages:emergency' %}" class="btn btn-accent btn-lg">
                     Request Assistance
                 </a>
                 <a href="tel:{{ site_settings.phone_number }}" class="btn btn-outline-light btn-lg ms-2">
-                    <i class="fas fa-phone me-2"></i>Call Now
+                    <i class="fas fa-phone me-2 shadow3d"></i>Call Now
                 </a>
             </div>
             <div class="col-lg-6">
@@ -54,17 +54,17 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-4 mb-3 mb-md-0">
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center shadow3d">
                     <i class="fas fa-phone fa-2x me-3"></i>
                     <div>
-                        <h5 class="mb-0">Call Us 24/7</h5>
+                        <h5 class="mb-0 ">Call Us 24/7</h5>
                         <a href="tel:{{ site_settings.phone_number }}" class="text-white text-decoration-none">
                             {{ site_settings.phone_number }}
                         </a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-3 mb-md-0">
+            <div class="col-md-4 mb-3 mb-md-0 shadow3d">
                 <div class="d-flex align-items-center">
                     <i class="fas fa-map-marker-alt fa-2x me-3"></i>
                     <div>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 shadow3d">
                 <div class="d-flex align-items-center">
                     <i class="fab fa-whatsapp fa-2x me-3"></i>
                     <div>

@@ -50,7 +50,7 @@ class ContactForm(forms.ModelForm):
         }
         help_texts = {
             'phone': 'Enter a UK phone number',
-            'vehicle_details': 'Make, model, and year of your vehicle',
+            'vehicle_details': 'Brand, model, and year of your vehicle',
             'location': 'Your current location or address',
         }
 
@@ -83,7 +83,7 @@ class EmergencyRequestForm(forms.ModelForm):
             Field('name', wrapper_class='mb-3', placeholder='Your Name'),
             Field('phone', wrapper_class='mb-3', placeholder='Your Phone Number'),
             Field('location', wrapper_class='mb-3', placeholder='Your Current Location'),
-            Field('vehicle_make', wrapper_class='mb-3', placeholder='Vehicle Make (e.g., Ford, BMW)'),
+            Field('vehicle_make', wrapper_class='mb-3', placeholder='Vehicle Brand (e.g., Ford, BMW)'),
             Field('vehicle_model', wrapper_class='mb-3', placeholder='Vehicle Model (e.g., Focus, 3 Series)'),
             Field('issue_description', wrapper_class='mb-3', placeholder='Please describe your situation', rows=3),
         )
