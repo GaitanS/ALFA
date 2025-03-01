@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /admin/
 Disallow: /ckeditor/
 
-Sitemap: https://alfa-recovery.pythonanywhere.com/sitemap.xml
+Sitemap: https://www.alfarecovery.co.uk/sitemap.xml
