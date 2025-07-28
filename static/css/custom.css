@@ -230,15 +230,53 @@ th {
     color: white;
 }
 
-/* Form Floating Labels */
+/* Call Now Button - Outline Primary Override */
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    background-color: transparent;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.btn-outline-primary:focus,
+.btn-outline-primary.focus {
+    box-shadow: 0 0 0 0.2rem rgba(130, 0, 0, 0.25);
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active,
+.btn-outline-primary:not(:disabled):not(.disabled).active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* IMPROVED FORM FLOATING LABELS - MOBILE FRIENDLY */
 .form-floating {
     position: relative;
+    margin-bottom: 1rem;
 }
 
 .form-floating > .form-control,
 .form-floating > .form-select {
     height: calc(3.5rem + 2px);
-    padding: 1rem 0.75rem;
+    padding: 1.5rem 0.75rem 0.5rem;
+    font-size: 1rem;
+    line-height: 1.25;
+}
+
+/* Mobile optimizations for form controls */
+@media (max-width: 768px) {
+    .form-floating > .form-control,
+    .form-floating > .form-select {
+        height: calc(3.8rem + 2px);
+        padding: 1.8rem 1rem 0.6rem;
+        font-size: 1.1rem;
+    }
 }
 
 .form-floating > .form-control::placeholder {
@@ -264,6 +302,7 @@ th {
     padding-bottom: 0.625rem;
 }
 
+/* IMPROVED FLOATING LABELS */
 .form-floating > label {
     position: absolute;
     top: 0;
@@ -277,30 +316,60 @@ th {
     pointer-events: none;
     border: 1px solid transparent;
     transform-origin: 0 0;
-    transition: opacity .1s ease-in-out, transform .1s ease-in-out;
+    transition: opacity .2s ease-in-out, transform .2s ease-in-out;
     color: #6c757d;
     margin: 0;
+    font-size: 1rem;
+    z-index: 2;
 }
 
+/* Mobile label adjustments */
+@media (max-width: 768px) {
+    .form-floating > label {
+        padding: 1.2rem 1rem;
+        font-size: 1.1rem;
+    }
+}
+
+/* Active/focused label state */
 .form-floating > .form-control:focus ~ label,
 .form-floating > .form-control:not(:placeholder-shown) ~ label,
 .form-floating > .form-select ~ label {
-    opacity: 0.65;
+    opacity: 0.75;
     transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
     background-color: white;
-    padding: 0 0.5rem;
+    padding: 0.2rem 0.5rem;
     height: auto;
     color: var(--primary-color);
+    font-weight: 500;
+    border-radius: 0.25rem;
+}
+
+/* Mobile active label adjustments */
+@media (max-width: 768px) {
+    .form-floating > .form-control:focus ~ label,
+    .form-floating > .form-control:not(:placeholder-shown) ~ label,
+    .form-floating > .form-select ~ label {
+        transform: scale(0.9) translateY(-0.7rem) translateX(0.2rem);
+        padding: 0.3rem 0.6rem;
+    }
 }
 
 .form-floating > .form-control:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.25rem rgba(252, 40, 4, 0.15);
+    box-shadow: 0 0 0 0.25rem rgba(130, 0, 0, 0.15);
 }
 
 .form-floating > textarea.form-control {
     height: auto;
     min-height: calc(3.5rem + 2px);
+    resize: vertical;
+}
+
+@media (max-width: 768px) {
+    .form-floating > textarea.form-control {
+        min-height: calc(4rem + 2px);
+    }
 }
 
 .form-floating > textarea.form-control:not(:placeholder-shown) {
@@ -395,8 +464,15 @@ footer a:hover {
 .form-text {
     font-size: 0.875rem;
     color: #6c757d;
-    margin-top: -0.5rem;
+    margin-top: 0.25rem;
     margin-bottom: 0.5rem;
+}
+
+/* Mobile form text adjustments */
+@media (max-width: 768px) {
+    .form-text {
+        font-size: 0.95rem;
+    }
 }
 
 /* Invalid Feedback */
@@ -404,15 +480,106 @@ footer a:hover {
     display: block;
     font-size: 0.875rem;
     color: #dc3545;
-    margin-top: -0.5rem;
+    margin-top: 0.25rem;
     margin-bottom: 0.5rem;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
+    .invalid-feedback {
+        font-size: 0.95rem;
+    }
+}
+
+/* MOBILE FORM IMPROVEMENTS */
+@media (max-width: 768px) {
+    /* Better form labels */
+    .form-label {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--primary-color);
+    }
+    
+    /* Larger form controls for better touch */
+    .form-control,
+    .form-select {
+        font-size: 1.1rem;
+        padding: 0.75rem 1rem;
+        min-height: 48px;
+        border-radius: 0.5rem;
+        border: 2px solid #dee2e6;
+    }
+    
+    .form-control:focus,
+    .form-select:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 0.2rem rgba(130, 0, 0, 0.15);
+    }
+    
+    /* Better textarea */
+    textarea.form-control {
+        min-height: 120px;
+        resize: vertical;
+    }
+    
+    /* Improve button spacing */
+    .btn {
+        min-height: 48px;
+        font-size: 1.1rem;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+    }
+    
+    /* Better card padding on mobile */
+    .card-body {
+        padding: 1.5rem !important;
+    }
+    
+    /* Form spacing */
+    .mb-3 {
+        margin-bottom: 1.5rem !important;
+    }
+    
+    /* Help text improvements */
+    .form-text {
+        font-size: 0.95rem;
+        margin-top: 0.5rem;
+    }
+    
+    /* Error message improvements */
+    .invalid-feedback {
+        font-size: 0.95rem;
+        margin-top: 0.5rem;
+    }
+    
+    /* Increase touch targets */
     .whatsapp-float {
         width: 50px;
         height: 50px;
         font-size: 24px;
+    }
+    
+    /* Improve mobile form experience */
+    .form-control:focus,
+    .form-select:focus {
+        font-size: 1.1rem;
+        transform: none;
+    }
+    
+    /* Better form layout on mobile */
+    .row .col-md-6 {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Prevent iOS zoom on form focus */
+@supports (-webkit-touch-callout: none) {
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    textarea,
+    select {
+        font-size: 1.1rem;
     }
 }

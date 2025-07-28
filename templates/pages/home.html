@@ -22,7 +22,7 @@
                 </a>
             </div>
             <div class="col-lg-6">
-<div class="hero-image" style="background-image: url('{% static 'img/truck.webp' %}');"></div>
+<div class="hero-image" style="background-image: url('{% static 'img/2.webp' %}');"></div>
             </div>
         </div>
     </div>
@@ -39,11 +39,11 @@
                     Request Assistance
                 </a>
                 <a href="tel:{{ site_settings.phone_number }}" class="btn btn-outline-light btn-lg ms-2">
-                    <i class="fas fa-phone me-2"></i>Call Now
+                    <i class="fas fa-phone me-2 shadow3d"></i>Call Now
                 </a>
             </div>
             <div class="col-lg-6">
-                <div class="hero-image" style="background-image: url('{% static 'img/truck.webp' %}');"></div>
+                <div class="hero-image" style="background-image: url('{% static 'img/9.webp' %}');"></div>
             </div>
         </div>
     </div>
@@ -55,7 +55,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-4 mb-3 mb-md-0">
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center shadow3d">
                     <i class="fas fa-phone fa-2x me-3"></i>
                     <div>
                         <h5 class="mb-0 ">Call Us 24/7</h5>
@@ -65,7 +65,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 mb-3 mb-md-0">
+            <div class="col-md-4 mb-3 mb-md-0 shadow3d">
                 <div class="d-flex align-items-center">
                     <i class="fas fa-map-marker-alt fa-2x me-3"></i>
                     <div>
@@ -74,12 +74,12 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 shadow3d">
                 <div class="d-flex align-items-center">
                     <i class="fab fa-whatsapp fa-2x me-3"></i>
                     <div>
                         <h5 class="mb-0">WhatsApp</h5>
-                        <a href="https://wa.me/{{ site_settings.whatsapp_number|cut:'+' }}?text=I%20need%20assistance"
+                        <a href="https://wa.me/{{ site_settings.whatsapp_number|cut:'+' }}?text=I%20need%20assistance" 
                            class="text-white text-decoration-none" target="_blank">
                             Message Us
                         </a>
@@ -90,6 +90,179 @@
     </div>
 </section>
 
+<!-- Gallery Section -->
+<section class="py-5 bg-dark">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-4 fw-bold text-white">ALFA RECOVERY</h2>
+            <p class="lead text-light">Professional Vehicle Recovery Services</p>
+        </div>
+        
+        <div class="gallery-carousel-container">
+            <div class="gallery-carousel">
+                <div class="gallery-track" id="galleryTrack">
+                    <!-- Gallery Items -->
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/1.webp' %}">
+                        <img src="{% static 'img/1.webp' %}" alt="Recovery Service 1" class="gallery-card-image" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/2.webp' %}">
+                        <img src="{% static 'img/2.webp' %}" alt="Recovery Service 2" class="gallery-card-image" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/4.webp' %}">
+                        <img src="{% static 'img/4.webp' %}" alt="Recovery Service 4" class="gallery-card-image" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/5.webp' %}">
+                        <img src="{% static 'img/5.webp' %}" alt="Recovery Service 5" class="gallery-card-image" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/6.webp' %}">
+                        <img src="{% static 'img/6.webp' %}" alt="Recovery Service 6" class="gallery-card-image" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/7.webp' %}">
+                        <img src="{% static 'img/7.webp' %}" alt="Recovery Service 7" class="gallery-card-image" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/8.webp' %}">
+                        <img src="{% static 'img/8.webp' %}" alt="Recovery Service 8" class="gallery-card-image" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/9.webp' %}">
+                        <img src="{% static 'img/9.webp' %}" alt="Recovery Service 9" class="gallery-card-image" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/10.webp' %}">
+                        <img src="{% static 'img/10.webp' %}" alt="Recovery Service 10" class="gallery-card-image" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/11.webp' %}">
+                        <img src="{% static 'img/11.webp' %}" alt="Recovery Service 11" class="gallery-card-image" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/12.webp' %}">
+                        <img src="{% static 'img/12.webp' %}" alt="Recovery Service 12" class="gallery-card-image" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/13.webp' %}">
+                        <img src="{% static 'img/13.webp' %}" alt="Recovery Service 13" class="gallery-card-image" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/14.webp' %}">
+                        <img src="{% static 'img/14.webp' %}" alt="Recovery Service 14" class="gallery-card-image" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/15.webp' %}">
+                        <img src="{% static 'img/15.webp' %}" alt="Recovery Service 15" class="gallery-card-image" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/16.webp' %}">
+                        <img src="{% static 'img/16.webp' %}" alt="Recovery Service 16" class="gallery-card-image" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/17.webp' %}">
+                        <img src="{% static 'img/17.webp' %}" alt="Recovery Service 17" class="gallery-card-image" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/18.webp' %}">
+                        <img src="{% static 'img/18.webp' %}" alt="Recovery Service 18" class="gallery-card-image" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/19.webp' %}">
+                        <img src="{% static 'img/19.webp' %}" alt="Recovery Service 19" class="gallery-card-image" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/20.webp' %}">
+                        <img src="{% static 'img/20.webp' %}" alt="Recovery Service 20" class="gallery-card-image" loading="lazy">
+                        <div class="gallery-card-overlay">
+                            <i class="fas fa-search-plus"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation Arrows -->
+            <button class="gallery-nav gallery-nav-prev" id="prevBtn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="gallery-nav gallery-nav-next" id="nextBtn">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+            
+            <!-- Dots Indicator -->
+            <div class="gallery-dots" id="galleryDots"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Modal -->
+<div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center p-0">
+                <button type="button" class="btn-close position-absolute top-0 end-0 m-3 bg-white rounded-circle p-2" data-bs-dismiss="modal" aria-label="Close" style="z-index: 1050;"></button>
+                <img id="modalImage" src="" alt="Gallery Image" class="img-fluid rounded">
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Services Overview -->
 <section class="py-5">
     <div class="container">
@@ -99,7 +272,7 @@
                 <p class="lead">Professional vehicle recovery and roadside assistance services you can trust.</p>
             </div>
         </div>
-
+        
         <div class="row g-4">
             {% for service in services %}
             <div class="col-md-4">
@@ -116,7 +289,7 @@
             </div>
             {% endfor %}
         </div>
-
+        
         <div class="row mt-5">
             <div class="col text-center">
                 <a href="{% url 'services:service_list' %}" class="btn btn-lg btn-primary">View All Services</a>
@@ -135,7 +308,7 @@
                 <p class="lead">Don't just take our word for it - hear from our satisfied customers.</p>
             </div>
         </div>
-
+        
         <div class="row">
             {% for testimonial in testimonials %}
             <div class="col-md-4 mb-4">
@@ -205,19 +378,19 @@
         box-shadow: -10px 0 20px rgba(0,0,0,0.4);
         z-index: 1;
     }
-
+    
     @media (max-width: 991px) {
         .hero {
             padding: 60px 0;
             background: linear-gradient(180deg, var(--primary-color) 0%, rgba(130, 0, 0, 0.95) 100%);
             min-height: auto;
         }
-
+        
         .hero-content {
             padding-right: 0;
             margin-bottom: 30px;
         }
-
+        
         .hero-image {
             position: relative;
             right: 0;
@@ -233,9 +406,422 @@
     .card {
         transition: transform 0.3s ease;
     }
-
+    
     .card:hover {
         transform: translateY(-5px);
     }
+
+    /* Gallery Carousel Styles */
+    .gallery-carousel-container {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        overflow: hidden;
+        height: 400px;
+        perspective: 1000px;
+    }
+
+    .gallery-carousel {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .gallery-track {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        transform-style: preserve-3d;
+    }
+
+    .gallery-card {
+        position: absolute;
+        width: 280px;
+        height: 350px;
+        border-radius: 15px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+    }
+
+    .gallery-card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+    }
+
+    .gallery-card-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(45deg, rgba(130, 0, 0, 0.8), rgba(180, 0, 0, 0.8));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .gallery-card-overlay i {
+        font-size: 2rem;
+        color: white;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .gallery-card:hover .gallery-card-overlay {
+        opacity: 1;
+    }
+
+    .gallery-card:hover .gallery-card-image {
+        transform: scale(1.1);
+    }
+
+    /* Card positioning for carousel effect */
+    .gallery-card:nth-child(1) { transform: translateX(-400px) translateZ(-200px) rotateY(35deg); opacity: 0.7; }
+    .gallery-card:nth-child(2) { transform: translateX(-200px) translateZ(-100px) rotateY(15deg); opacity: 0.8; }
+    .gallery-card:nth-child(3) { transform: translateX(0) translateZ(0) rotateY(0deg); opacity: 1; z-index: 10; }
+    .gallery-card:nth-child(4) { transform: translateX(200px) translateZ(-100px) rotateY(-15deg); opacity: 0.8; }
+    .gallery-card:nth-child(5) { transform: translateX(400px) translateZ(-200px) rotateY(-35deg); opacity: 0.7; }
+
+    /* Hide cards beyond the 5 visible ones */
+    .gallery-card:nth-child(n+6) {
+        opacity: 0;
+        transform: translateX(600px) translateZ(-300px) rotateY(-45deg);
+        pointer-events: none;
+    }
+
+    /* Navigation arrows */
+    .gallery-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 20;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .gallery-nav:hover {
+        background: white;
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .gallery-nav-prev {
+        left: 20px;
+    }
+
+    .gallery-nav-next {
+        right: 20px;
+    }
+
+    .gallery-nav i {
+        font-size: 1.2rem;
+        color: #333;
+    }
+
+    /* Dots indicator */
+    .gallery-dots {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 10px;
+        z-index: 20;
+    }
+
+    .gallery-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .gallery-dot.active {
+        background: white;
+        transform: scale(1.2);
+    }
+
+    /* Modal Styles */
+    .modal-content {
+        background: transparent !important;
+    }
+
+    .modal-body img {
+        max-height: 80vh;
+        width: auto;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .gallery-carousel-container {
+            height: 300px;
+        }
+
+        .gallery-card {
+            width: 200px;
+            height: 250px;
+        }
+
+        .gallery-card:nth-child(1) { transform: translateX(-250px) translateZ(-150px) rotateY(25deg); }
+        .gallery-card:nth-child(2) { transform: translateX(-125px) translateZ(-75px) rotateY(12deg); }
+        .gallery-card:nth-child(3) { transform: translateX(0) translateZ(0) rotateY(0deg); }
+        .gallery-card:nth-child(4) { transform: translateX(125px) translateZ(-75px) rotateY(-12deg); }
+        .gallery-card:nth-child(5) { transform: translateX(250px) translateZ(-150px) rotateY(-25deg); }
+
+        .gallery-nav {
+            width: 40px;
+            height: 40px;
+        }
+
+        .gallery-nav i {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .gallery-carousel-container {
+            height: 250px;
+        }
+
+        .gallery-card {
+            width: 160px;
+            height: 200px;
+        }
+
+        .gallery-card:nth-child(1) { transform: translateX(-180px) translateZ(-100px) rotateY(20deg); }
+        .gallery-card:nth-child(2) { transform: translateX(-90px) translateZ(-50px) rotateY(10deg); }
+        .gallery-card:nth-child(3) { transform: translateX(0) translateZ(0) rotateY(0deg); }
+        .gallery-card:nth-child(4) { transform: translateX(90px) translateZ(-50px) rotateY(-10deg); }
+        .gallery-card:nth-child(5) { transform: translateX(180px) translateZ(-100px) rotateY(-20deg); }
+    }
 </style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Gallery carousel functionality
+        const galleryTrack = document.getElementById('galleryTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const galleryDots = document.getElementById('galleryDots');
+        const galleryCards = document.querySelectorAll('.gallery-card');
+        const modalImage = document.getElementById('modalImage');
+        
+        let currentIndex = 4; // Start from the 5th photo (index 4)
+        const totalCards = galleryCards.length;
+        const visibleCards = 5;
+        
+        // Create dots
+                function createDots() {
+                    const totalDots = Math.ceil(totalCards / visibleCards);
+                    for (let i = 0; i < totalDots; i++) {
+                        const dot = document.createElement('div');
+                        dot.classList.add('gallery-dot');
+                        if (Math.floor(currentIndex / visibleCards) === i) dot.classList.add('active');
+                        dot.addEventListener('click', () => goToSlide(i * visibleCards));
+                        galleryDots.appendChild(dot);
+                    }
+                }
+        
+        // Update card positions
+        function updateCardPositions() {
+            galleryCards.forEach((card, index) => {
+                const relativeIndex = index - currentIndex;
+                card.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                
+                if (relativeIndex < -2 || relativeIndex > 2) {
+                    // Hide cards that are too far
+                    card.style.opacity = '0';
+                    card.style.transform = `translateX(${relativeIndex > 0 ? '600px' : '-600px'}) translateZ(-300px) rotateY(${relativeIndex > 0 ? '-45deg' : '45deg'})`;
+                    card.style.pointerEvents = 'none';
+                } else {
+                    // Position visible cards
+                    card.style.pointerEvents = 'auto';
+                    
+                    switch (relativeIndex) {
+                        case -2:
+                            card.style.opacity = '0.6';
+                            card.style.transform = 'translateX(-400px) translateZ(-200px) rotateY(35deg)';
+                            card.style.zIndex = '1';
+                            break;
+                        case -1:
+                            card.style.opacity = '0.8';
+                            card.style.transform = 'translateX(-200px) translateZ(-100px) rotateY(15deg)';
+                            card.style.zIndex = '5';
+                            break;
+                        case 0:
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateX(0) translateZ(0) rotateY(0deg)';
+                            card.style.zIndex = '10';
+                            break;
+                        case 1:
+                            card.style.opacity = '0.8';
+                            card.style.transform = 'translateX(200px) translateZ(-100px) rotateY(-15deg)';
+                            card.style.zIndex = '5';
+                            break;
+                        case 2:
+                            card.style.opacity = '0.6';
+                            card.style.transform = 'translateX(400px) translateZ(-200px) rotateY(-35deg)';
+                            card.style.zIndex = '1';
+                            break;
+                    }
+                }
+            });
+            
+            // Update dots
+            const dots = document.querySelectorAll('.gallery-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', Math.floor(currentIndex / visibleCards) === index);
+            });
+        }
+        
+        // Go to specific slide
+        function goToSlide(index) {
+            currentIndex = Math.max(0, Math.min(index, totalCards - 1));
+            updateCardPositions();
+        }
+        
+        // Next slide
+        function nextSlide() {
+            if (currentIndex < totalCards - 1) {
+                currentIndex++;
+                updateCardPositions();
+            }
+        }
+        
+        // Previous slide
+        function prevSlide() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCardPositions();
+            }
+        }
+        
+        // Event listeners
+        nextBtn.addEventListener('click', nextSlide);
+        prevBtn.addEventListener('click', prevSlide);
+        
+        // Auto-play functionality
+        let autoPlayInterval;
+        
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                if (currentIndex < totalCards - 1) {
+                    nextSlide();
+                } else {
+                    goToSlide(0);
+                }
+            }, 4000);
+        }
+        
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+        
+        // Pause auto-play on hover
+        galleryTrack.addEventListener('mouseenter', stopAutoPlay);
+        galleryTrack.addEventListener('mouseleave', startAutoPlay);
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+            }
+        });
+        
+        // Touch/swipe support
+        let startX = 0;
+        let endX = 0;
+        
+        galleryTrack.addEventListener('touchstart', function(e) {
+            startX = e.touches[0].clientX;
+        });
+        
+        galleryTrack.addEventListener('touchend', function(e) {
+            endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+            
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+        });
+        
+        // Modal functionality
+        galleryCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const imageSrc = this.getAttribute('data-image');
+                modalImage.src = imageSrc;
+            });
+        });
+        
+        // Initialize
+        createDots();
+        updateCardPositions();
+        startAutoPlay();
+        
+        // Preload images for better performance
+        const imageUrls = [
+            '{% static "img/1.webp" %}',
+            '{% static "img/2.webp" %}',
+            '{% static "img/4.webp" %}',
+            '{% static "img/5.webp" %}',
+            '{% static "img/6.webp" %}',
+            '{% static "img/7.webp" %}',
+            '{% static "img/8.webp" %}',
+            '{% static "img/9.webp" %}',
+            '{% static "img/10.webp" %}',
+            '{% static "img/11.webp" %}',
+            '{% static "img/12.webp" %}',
+            '{% static "img/13.webp" %}',
+            '{% static "img/14.webp" %}',
+            '{% static "img/15.webp" %}',
+            '{% static "img/16.webp" %}',
+            '{% static "img/17.webp" %}',
+            '{% static "img/18.webp" %}',
+            '{% static "img/19.webp" %}',
+            '{% static "img/20.webp" %}'
+        ];
+        
+        imageUrls.forEach(url => {
+            const img = new Image();
+            img.src = url;
+        });
+        
+        // Handle image load errors gracefully
+        galleryCards.forEach(card => {
+            const img = card.querySelector('.gallery-card-image');
+            img.addEventListener('error', function() {
+                card.style.display = 'none';
+            });
+        });
+    });
+</script>
 {% endblock %}

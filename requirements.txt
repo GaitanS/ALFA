@@ -10,3 +10,4 @@ django-allauth>=0.54.0
 python-dotenv>=1.0.0
 crispy-bootstrap5
 mysqlclient
+django-jazzmin

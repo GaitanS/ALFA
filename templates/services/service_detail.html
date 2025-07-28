@@ -87,17 +87,17 @@
                         <form method="post" id="contact-form" action="{% url 'contact:submit_contact' %}" novalidate>
                             {% csrf_token %}
                             {% for field in contact_form %}
-                                <div class="form-floating mb-3">
+                                <div class="mb-3">
+                                    <label for="{{ field.id_for_label }}" class="form-label fw-bold">{{ field.label }}</label>
                                     {% if field.field.widget.input_type == 'select' %}
-                                        {{ field|add_class:"form-select"|attr:"placeholder:Select" }}
+                                        {{ field|add_class:"form-select" }}
                                     {% elif field.field.widget.input_type == 'textarea' %}
-                                        {{ field|add_class:"form-control"|attr:"style:height: 100px"|attr:"placeholder: " }}
+                                        {{ field|add_class:"form-control"|attr:"style:height: 120px"|attr:"rows:4" }}
                                     {% else %}
-                                        {{ field|add_class:"form-control"|attr:"placeholder: " }}
+                                        {{ field|add_class:"form-control" }}
                                     {% endif %}
-                                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
                                     {% if field.help_text %}
-                                        <div class="form-text text-muted small">{{ field.help_text }}</div>
+                                        <div class="form-text text-muted">{{ field.help_text }}</div>
                                     {% endif %}
                                     {% if field.errors %}
                                         <div class="invalid-feedback d-block">{{ field.errors|join:", " }}</div>
