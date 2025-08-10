@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.http import HttpResponsePermanentRedirect
 import mimetypes
 import os
 
@@ -68,3 +69,48 @@ class CacheControlMiddleware:
             return mime_type
         
         return None
+
+
+class CanonicalDomainMiddleware:
+    """
+    Middleware to enforce canonical domain (redirect www to non-www)
+    """
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        host = request.get_host()
+        
+        # Only apply in production
+        if not settings.DEBUG:
+            # Redirect www to non-www
+            if host.startswith('www.'):
+                new_host = host[4:]  # Remove 'www.'
+                new_url = f"https://{new_host}{request.get_full_path()}"
+                return HttpResponsePermanentRedirect(new_url)
+        
+        response = self.get_response(request)
+        return response
+
+
+class SecurityHeadersMiddleware:
+    """
+    Middleware to add additional security headers
+    """
+    def __init__(self, get_response):
+        self.get_response = get_response
+
+    def __call__(self, request):
+        response = self.get_response(request)
+        
+        # Add security headers
+        response['X-Content-Type-Options'] = 'nosniff'
+        response['X-Frame-Options'] = 'DENY'
+        response['X-XSS-Protection'] = '1; mode=block'
+        response['Referrer-Policy'] = 'strict-origin-when-cross-origin'
+        
+        # Add HSTS header for HTTPS
+        if request.is_secure():
+            response['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains; preload'
+        
+        return response

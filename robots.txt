@@ -1,5 +1,12 @@
 User-agent: *
 Disallow: /admin/
 Disallow: /ckeditor/
+Disallow: /media/private/
+Allow: /static/
+Allow: /media/
 
-Sitemap: https://www.alfarecovery.co.uk/sitemap.xml
+# Sitemap location
+Sitemap: https://alfarecovery.co.uk/sitemap.xml
+
+# Crawl delay (optional)
+Crawl-delay: 1
