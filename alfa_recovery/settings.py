@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'core.middleware.CanonicalDomainMiddleware',
+    # 'core.middleware.CanonicalDomainMiddleware',  # Disabled to prevent conflicts with .htaccess
     'django.contrib.sessions.middleware.SessionMiddleware',
     'core.middleware.CacheControlMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -59,7 +59,7 @@ SECURE_BROWSER_XSS_FILTER = True
 X_FRAME_OPTIONS = 'DENY'
 SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_SSL_REDIRECT = True
+# SECURE_SSL_REDIRECT = True  # Disabled - let .htaccess handle HTTPS redirects
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 SECURE_HSTS_PRELOAD = True
