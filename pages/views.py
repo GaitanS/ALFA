@@ -80,3 +80,49 @@ def location_view(request, location):
         'location_slug': location
     }
     return render(request, 'pages/location.html', context)
+
+
+def motorway_junction_view(request, motorway, junction):
+    '''Motorway junction landing page.'''
+    # M4 Junctions mapping
+    m4_junctions = {
+        'j18': {'name': 'Junction 18', 'location': 'Bath/Tormarton', 'direction': 'towards Bristol or London'},
+        'j19': {'name': 'Junction 19', 'location': 'Bristol (M32)', 'direction': 'towards Bristol city centre or London'},
+        'j20': {'name': 'Junction 20', 'location': 'Almondsbury (M5)', 'direction': 'towards London or South Wales'},
+        'j21': {'name': 'Junction 21', 'location': 'Pill', 'direction': 'towards Bristol or London'},
+        'j22': {'name': 'Junction 22', 'location': 'Avonmouth', 'direction': 'towards Bristol or South Wales'},
+    }
+    
+    # M5 Junctions mapping
+    m5_junctions = {
+        'j14': {'name': 'Junction 14', 'location': 'Thornbury/Falfield', 'direction': 'towards Birmingham or Exeter'},
+        'j15': {'name': 'Junction 15', 'location': 'Almondsbury (M4)', 'direction': 'towards Birmingham or Exeter'},
+        'j16': {'name': 'Junction 16', 'location': 'Aztec West', 'direction': 'towards Birmingham or Exeter'},
+        'j17': {'name': 'Junction 17', 'location': 'Cribbs Causeway', 'direction': 'towards Birmingham or Exeter'},
+        'j18': {'name': 'Junction 18', 'location': 'Avonmouth', 'direction': 'towards Birmingham or Exeter'},
+        'j19': {'name': 'Junction 19', 'location': 'Portishead', 'direction': 'towards Birmingham or Exeter'},
+    }
+    
+    motorway_upper = motorway.upper()
+    junction_data = None
+    
+    if motorway_upper == 'M4':
+        junction_data = m4_junctions.get(junction.lower())
+    elif motorway_upper == 'M5':
+        junction_data = m5_junctions.get(junction.lower())
+    
+    if not junction_data:
+        # 404 for unknown junctions
+        from django.http import Http404
+        raise Http404('Junction not found')
+    
+    context = {
+        'motorway': motorway_upper,
+        'junction': junction.upper(),
+        'junction_name': junction_data['name'],
+        'location_name': junction_data['location'],
+        'direction': junction_data['direction'],
+    }
+    
+    return render(request, 'pages/motorway_junction.html', context)
+

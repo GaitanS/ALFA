@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ motorway }} {{ junction_name }} Recovery - HGV & Commercial Breakdown | {{
+site_settings.company_name }}{% endblock %}
+{% block og_title %}{{ motorway }} {{ junction_name }} Recovery - {{ site_settings.company_name }}{% endblock %}
+<meta name="description"
+    content="24/7 HGV & commercial vehicle recovery at {{ motorway}} {{ junction_name }}. Fast response, up to 44-tonne capacity. Expert roadside assistance & recovery on {{ motorway }} motorway.">
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero"
+    style="background: linear-gradient(rgba(130, 0, 0, 0.9), rgba(130, 0, 0, 0.8)), url('{% static 'img/2.webp' %}') center/cover;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 text-white hero-content">
+                <h1 class="display-4 fw-bold mb-4">{{ motorway }} {{ junction_name }} Vehicle Recovery</h1>
+                <p class="lead mb-4">24/7 Emergency HGV & commercial vehicle recovery at {{ motorway }} {{ junction_name }}. Fast arrival times, professional service.</p>
+                <a href="{% url 'pages:emergency' %}" class="btn btn-accent btn-lg">
+                    Request Assistance
+                </a>
+                <a href="tel:{{ site_settings.phone_number }}" class="btn btn-outline-light btn-lg ms-2">
+                    <i class="fas fa-phone me-2"></i>Call Now
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Junction Specific Content -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-6">
+                <h2 class="display-5 fw-bold mb-4">{{ motorway }} {{ junction_name }} - {{ location_name }}</h2>
+                <p class="lead">Strategic recovery position for {{ motorway }} traffic at {{ junction_name }}.</p>
+                <p>Our Avonmouth base provides optimal coverage for {{ motorway }} {{ junction_name }}. Whether you're
+                    heading {{ direction }}, we can reach you quickly with our specialist HGV recovery fleet.</p>
+                <div class="bg-white p-4 rounded shadow-sm mt-4">
+                    <h3 class="h5 mb-3"><i class="fas fa-map-marker-alt text-danger me-2"></i>Coverage Details</h3>
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> {{ motorway }} {{ junction_name }} ({{ location_name }})</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> {{ motorway }} hard shoulder &
+                            lanes</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Slip roads & service areas</li>
+                        <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Local access roads</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="p-4">
+                    <h3 class="h4 mb-4">Services at {{ motorway }} {{ junction_name }}</h3>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="bg-white p-3 rounded shadow-sm h-100">
+                                <i class="fas fa-truck fa-2x text-danger mb-2"></i>
+                                <h4 class="h6 fw-bold">HGV Recovery</h4>
+                                <p class="small mb-0">Up to 44-tonne capacity</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="bg-white p-3 rounded shadow-sm h-100">
+                                <i class="fas fa-tachometer-alt fa-2x text-danger mb-2"></i>
+                                <h4 class="h6 fw-bold">Fast Response</h4>
+                                <p class="small mb-0">Rapid motorway deployment</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="bg-white p-3 rounded shadow-sm h-100">
+                                <i class="fas fa-road fa-2x text-danger mb-2"></i>
+                                <h4 class="h6 fw-bold">Roadside Repair</h4>
+                                <p class="small mb-0">On-site assistance when possible</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="bg-white p-3 rounded shadow-sm h-100">
+                                <i class="fas fa-shield-alt fa-2x text-danger mb-2"></i>
+                                <h4 class="h6 fw-bold">Safe Recovery</h4>
+                                <p class="small mb-0">Professional, secure transport</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-5 bg-dark text-white">
+    <div class="container text-center">
+        <h2 class="display-5 fw-bold mb-4">Broken Down at {{ motorway }} {{ junction_name }}?</h2>
+        <p class="lead mb-4">Our 24/7 emergency response team is ready to assist.</p>
+        <a href="tel:{{ site_settings.phone_number }}" class="btn btn-accent btn-lg">
+            <i class="fas fa-phone me-2"></i>{{ site_settings.phone_number }}
+        </a>
+    </div>
+</section>
+{% endblock %}

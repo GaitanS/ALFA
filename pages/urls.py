@@ -16,6 +16,9 @@ urlpatterns = [
     # Location pages
     path('recovery/<slug:location>/', views.location_view, name='location'),
     
+    # Motorway junction pages
+    path('recovery/<str:motorway>/<str:junction>/', views.motorway_junction_view, name='motorway_junction'),
+    
     # Dynamic page handler
     path('<slug:slug>/', views.page_detail, name='page_detail'),
     
