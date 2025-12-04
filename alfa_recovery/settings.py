@@ -8,12 +8,13 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-local-dev-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['www.alfarecovery.co.uk','alfarecovery.co.uk','alfarecovery.eu.pythonanywhere.com']
+ALLOWED_HOSTS = ['www.alfarecovery.co.uk','alfarecovery.co.uk','alfarecovery.eu.pythonanywhere.com', '127.0.0.1', 'localhost']
 
 # Application definition
 INSTALLED_APPS = [
@@ -111,15 +112,8 @@ WSGI_APPLICATION = 'alfa_recovery.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'alfarecovery$default',
-        'USER': 'alfarecovery',
-        'PASSWORD': 'recuperaredetiruri',
-        'HOST': 'alfarecovery.mysql.eu.pythonanywhere-services.com',
-        'PORT': '3306',
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-        }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

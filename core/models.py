@@ -12,11 +12,11 @@ class SiteSettings(models.Model):
     instagram_link = models.URLField(blank=True)
     meta_description = models.TextField(
         max_length=160,
-        default="24/7 Vehicle Recovery & Roadside Assistance in the UK. Professional towing and breakdown services."
+        default="Expert HGV and commercial vehicle recovery in Bristol. 24/7 emergency roadside assistance for trucks, vans, and fleets."
     )
     meta_keywords = models.CharField(
         max_length=255,
-        default="vehicle recovery, roadside assistance, towing service, car breakdown, UK"
+        default="HGV recovery Bristol, commercial recovery Bristol, vehicle recovery, roadside assistance, towing service, car breakdown, UK"
     )
     google_maps_embed = models.TextField(
         blank=True,

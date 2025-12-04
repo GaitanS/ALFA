@@ -16,7 +16,8 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-0">
                         <li class="breadcrumb-item"><a href="{% url 'pages:home' %}" class="text-white">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{% url 'services:service_list' %}" class="text-white">Services</a></li>
+                        <li class="breadcrumb-item"><a href="{% url 'services:service_list' %}"
+                                class="text-white">Services</a></li>
                         <li class="breadcrumb-item active text-white" aria-current="page">{{ service.title }}</li>
                     </ol>
                 </nav>
@@ -42,11 +43,11 @@
                         <div class="text-center mb-4">
                             <i class="{{ service.icon_class }} fa-4x" style="color: var(--primary-color);"></i>
                         </div>
-                        
+
                         <div class="service-description">
                             {{ service.description|linebreaks }}
                         </div>
-                        
+
                         <!-- Key Features -->
                         <div class="mt-5">
                             <h2 class="h4 mb-4">Key Features</h2>
@@ -79,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Contact Form -->
                 <div class="card border-0 shadow-sm mt-4">
                     <div class="card-body p-4">
@@ -87,22 +88,23 @@
                         <form method="post" id="contact-form" action="{% url 'contact:submit_contact' %}" novalidate>
                             {% csrf_token %}
                             {% for field in contact_form %}
-                                <div class="mb-3">
-                                    <label for="{{ field.id_for_label }}" class="form-label fw-bold">{{ field.label }}</label>
-                                    {% if field.field.widget.input_type == 'select' %}
-                                        {{ field|add_class:"form-select" }}
-                                    {% elif field.field.widget.input_type == 'textarea' %}
-                                        {{ field|add_class:"form-control"|attr:"style:height: 120px"|attr:"rows:4" }}
-                                    {% else %}
-                                        {{ field|add_class:"form-control" }}
-                                    {% endif %}
-                                    {% if field.help_text %}
-                                        <div class="form-text text-muted">{{ field.help_text }}</div>
-                                    {% endif %}
-                                    {% if field.errors %}
-                                        <div class="invalid-feedback d-block">{{ field.errors|join:", " }}</div>
-                                    {% endif %}
-                                </div>
+                            <div class="mb-3">
+                                <label for="{{ field.id_for_label }}" class="form-label fw-bold">{{ field.label
+                                    }}</label>
+                                {% if field.field.widget.input_type == 'select' %}
+                                {{ field|add_class:"form-select" }}
+                                {% elif field.field.widget.input_type == 'textarea' %}
+                                {{ field|add_class:"form-control"|attr:"style:height: 120px"|attr:"rows:4" }}
+                                {% else %}
+                                {{ field|add_class:"form-control" }}
+                                {% endif %}
+                                {% if field.help_text %}
+                                <div class="form-text text-muted">{{ field.help_text }}</div>
+                                {% endif %}
+                                {% if field.errors %}
+                                <div class="invalid-feedback d-block">{{ field.errors|join:", " }}</div>
+                                {% endif %}
+                            </div>
                             {% endfor %}
                             <div class="mt-4">
                                 <button type="submit" class="btn btn-primary btn-lg w-100">
@@ -113,7 +115,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Sidebar -->
             <div class="col-lg-4">
                 <!-- Quick Contact -->
@@ -124,8 +126,8 @@
                             <a href="tel:{{ site_settings.phone_number }}" class="btn btn-primary">
                                 <i class="fas fa-phone me-2"></i>{{ site_settings.phone_number }}
                             </a>
-                            <a href="https://wa.me/{{ site_settings.whatsapp_number|cut:'+' }}" 
-                               class="btn btn-success" target="_blank">
+                            <a href="https://wa.me/{{ site_settings.whatsapp_number|cut:'+' }}" class="btn btn-success"
+                                target="_blank">
                                 <i class="fab fa-whatsapp me-2"></i>WhatsApp Us
                             </a>
                             <a href="{% url 'pages:emergency' %}" class="btn btn-danger">
@@ -134,7 +136,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Related Services -->
                 {% if related_services %}
                 <div class="card border-0 shadow-sm">
@@ -142,8 +144,8 @@
                         <h3 class="h4 mb-4">Related Services</h3>
                         <div class="list-group list-group-flush">
                             {% for related in related_services %}
-                            <a href="{% url 'services:service_detail' related.pk %}" 
-                               class="list-group-item list-group-item-action d-flex align-items-center">
+                            <a href="{% url 'services:service_detail' related.pk %}"
+                                class="list-group-item list-group-item-action d-flex align-items-center">
                                 <i class="{{ related.icon_class }} me-3"></i>
                                 {{ related.title }}
                             </a>
@@ -174,4 +176,27 @@
         </div>
     </div>
 </section>
+<!-- Service Schema -->
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "{{ service.title }}",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "{{ site_settings.company_name }}"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Bristol"
+      },
+      "description": "{{ service.description|truncatewords:50 }}",
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "price": "Call for quote",
+        "priceCurrency": "GBP"
+      }
+    }
+    </script>
 {% endblock %}

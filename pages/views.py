@@ -53,3 +53,30 @@ def custom_404(request, exception):
 def custom_500(request):
     """Custom 500 error page."""
     return render(request, 'pages/500.html', status=500)
+
+def location_view(request, location):
+    """Dynamic location landing page."""
+    # Map slug to display name
+    locations = {
+        'bristol': 'Bristol',
+        'avonmouth': 'Avonmouth',
+        'm4': 'M4 Motorway',
+        'm5': 'M5 Motorway',
+        'portbury': 'Portbury',
+        'filton': 'Filton',
+        'severn-beach': 'Severn Beach',
+        'cribbs-causeway': 'Cribbs Causeway'
+    }
+    
+    location_name = locations.get(location.lower())
+    
+    if not location_name:
+        # Fallback for unknown locations or 404
+        # For now, let's just capitalize it if not in map, or 404
+        location_name = location.replace('-', ' ').title()
+
+    context = {
+        'location_name': location_name,
+        'location_slug': location
+    }
+    return render(request, 'pages/location.html', context)

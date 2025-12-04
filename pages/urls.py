@@ -13,6 +13,9 @@ urlpatterns = [
     # Emergency assistance page
     path('emergency/', views.emergency, name='emergency'),
     
+    # Location pages
+    path('recovery/<slug:location>/', views.location_view, name='location'),
+    
     # Dynamic page handler
     path('<slug:slug>/', views.page_detail, name='page_detail'),
     

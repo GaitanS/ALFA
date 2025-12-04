@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}{{ site_settings.company_name }} - 24/7 Vehicle Recovery & Roadside Assistance in England{% endblock %}
-{% block og_title %}{{ site_settings.company_name }} - 24/7 Vehicle Recovery & Roadside Assistance in England{% endblock %}
-<meta name="description" content="24/7 vehicle recovery and roadside assistance in England. Fast, reliable car breakdown service and emergency car recovery. Contact us for immediate assistance.">
+{% block title %}HGV & Commercial Vehicle Recovery Bristol - {{ site_settings.company_name }}{% endblock %}
+{% block og_title %}HGV & Commercial Vehicle Recovery Bristol - {{ site_settings.company_name }}{% endblock %}
+<meta name="description"
+    content="Expert HGV and commercial vehicle recovery in Bristol and surrounding areas. 24/7 emergency roadside assistance for trucks, vans, and fleets.">
 
 {% block content %}
 <!-- Hero Section -->
@@ -22,7 +23,7 @@
                 </a>
             </div>
             <div class="col-lg-6">
-<div class="hero-image" style="background-image: url('{% static 'img/2.webp' %}');"></div>
+                <div class="hero-image" style="background-image: url('{% static 'img/2.webp' %}');"></div>
             </div>
         </div>
     </div>
@@ -33,8 +34,10 @@
     <div class="container">
         <div class="row align-items-center ">
             <div class="col-lg-6 text-white hero-content p-1">
-                <h1 class="display-4 fw-bold mb-4 shadow3d">24/7 Comercial Vehicle Recovery & Roadside Assistance</h1>
-                <p class="lead mb-4 shadow3d">Professional and reliable vehicle recovery services across the UK. We're here when you need us most.</p>
+                <h1 class="display-4 fw-bold mb-4 shadow3d">24/7 HGV, Commercial Vehicle Recovery & Roadside Assistance
+                </h1>
+                <p class="lead mb-4 shadow3d">Professional and reliable vehicle recovery services across the UK. Serving
+                    Bristol, Avonmouth, M4, M5 and surrounding areas.</p>
                 <a href="{% url 'pages:emergency' %}" class="btn btn-accent btn-lg">
                     Request Assistance
                 </a>
@@ -79,11 +82,99 @@
                     <i class="fab fa-whatsapp fa-2x me-3"></i>
                     <div>
                         <h5 class="mb-0">WhatsApp</h5>
-                        <a href="https://wa.me/{{ site_settings.whatsapp_number|cut:'+' }}?text=I%20need%20assistance" 
-                           class="text-white text-decoration-none" target="_blank">
+                        <a href="https://wa.me/{{ site_settings.whatsapp_number|cut:'+' }}?text=I%20need%20assistance"
+                            class="text-white text-decoration-none" target="_blank">
                             Message Us
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- Areas Covered Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="display-5 fw-bold mb-4">HGV & Commercial Recovery in Bristol</h2>
+                <p class="lead">We specialize in heavy goods vehicle recovery and commercial fleet support throughout
+                    Bristol and the South West.</p>
+                <p>Our strategic location in Avonmouth allows us to provide rapid response times to major routes
+                    including the M4 and M5 motorways. Whether you have a van, truck, or an entire fleet, our
+                    experienced team is ready to assist 24/7.</p>
+                <ul class="list-unstyled mt-4">
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i> HGV Recovery & Towing</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Commercial Vehicle Breakdown
+                        Assistance</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i> Fleet Support Services</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i> M4 & M5 Motorway Recovery</li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <div class="p-4 bg-white rounded shadow-sm">
+                    <h3 class="h4 mb-3">Key Areas We Cover</h3>
+                    <div class="row">
+                        <div class="col-6">
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2"><i class="fas fa-map-marker-alt text-danger me-2"></i> Bristol City
+                                    Centre</li>
+                                <li class="mb-2"><i class="fas fa-map-marker-alt text-danger me-2"></i> Avonmouth</li>
+                                <li class="mb-2"><i class="fas fa-map-marker-alt text-danger me-2"></i> Portbury</li>
+                                <li class="mb-2"><i class="fas fa-map-marker-alt text-danger me-2"></i> Filton</li>
+                            </ul>
+                        </div>
+                        <div class="col-6">
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2"><i class="fas fa-map-marker-alt text-danger me-2"></i> M4 Corridor</li>
+                                <li class="mb-2"><i class="fas fa-map-marker-alt text-danger me-2"></i> M5 Corridor</li>
+                                <li class="mb-2"><i class="fas fa-map-marker-alt text-danger me-2"></i> Severn Beach
+                                </li>
+                                <li class="mb-2"><i class="fas fa-map-marker-alt text-danger me-2"></i> Cribbs Causeway
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold">Why Choose ALFA Recovery?</h2>
+            <p class="lead">We are the leading HGV and commercial vehicle recovery specialists in Bristol.</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="text-center p-4 h-100 bg-light rounded shadow-sm">
+                    <i class="fas fa-clock fa-3x text-danger mb-3"></i>
+                    <h3 class="h4">Rapid Response</h3>
+                    <p>We understand that time is money. Our strategic location in Avonmouth allows us to reach you
+                        quickly on the M4, M5, and surrounding areas.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center p-4 h-100 bg-light rounded shadow-sm">
+                    <i class="fas fa-truck-moving fa-3x text-danger mb-3"></i>
+                    <h3 class="h4">Specialist Fleet</h3>
+                    <p>Our fleet is equipped to handle everything from light commercial vans to 44-tonne HGVs and
+                        coaches.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center p-4 h-100 bg-light rounded shadow-sm">
+                    <i class="fas fa-tools fa-3x text-danger mb-3"></i>
+                    <h3 class="h4">Expert Technicians</h3>
+                    <p>Our highly trained team has the expertise to resolve complex recovery situations safely and
+                        efficiently.</p>
                 </div>
             </div>
         </div>
@@ -97,146 +188,184 @@
             <h2 class="display-4 fw-bold text-white">ALFA RECOVERY</h2>
             <p class="lead text-light">Professional Vehicle Recovery Services</p>
         </div>
-        
+
         <div class="gallery-carousel-container">
             <div class="gallery-carousel">
                 <div class="gallery-track" id="galleryTrack">
                     <!-- Gallery Items -->
-                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/1.webp' %}">
-                        <img src="{% static 'img/1.webp' %}" alt="Recovery Service 1" class="gallery-card-image" loading="lazy">
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                        data-image="{% static 'img/1.webp' %}">
+                        <img src="{% static 'img/1.webp' %}" alt="Recovery Service 1" class="gallery-card-image"
+                            loading="lazy">
                         <div class="gallery-card-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
-                    
-                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/2.webp' %}">
-                        <img src="{% static 'img/2.webp' %}" alt="Recovery Service 2" class="gallery-card-image" loading="lazy">
+
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                        data-image="{% static 'img/2.webp' %}">
+                        <img src="{% static 'img/2.webp' %}" alt="Recovery Service 2" class="gallery-card-image"
+                            loading="lazy">
                         <div class="gallery-card-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
-                    
-                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/4.webp' %}">
-                        <img src="{% static 'img/4.webp' %}" alt="Recovery Service 4" class="gallery-card-image" loading="lazy">
+
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                        data-image="{% static 'img/4.webp' %}">
+                        <img src="{% static 'img/4.webp' %}" alt="Recovery Service 4" class="gallery-card-image"
+                            loading="lazy">
                         <div class="gallery-card-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
-                    
-                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/5.webp' %}">
-                        <img src="{% static 'img/5.webp' %}" alt="Recovery Service 5" class="gallery-card-image" loading="lazy">
+
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                        data-image="{% static 'img/5.webp' %}">
+                        <img src="{% static 'img/5.webp' %}" alt="Recovery Service 5" class="gallery-card-image"
+                            loading="lazy">
                         <div class="gallery-card-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
-                    
-                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/6.webp' %}">
-                        <img src="{% static 'img/6.webp' %}" alt="Recovery Service 6" class="gallery-card-image" loading="lazy">
+
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                        data-image="{% static 'img/6.webp' %}">
+                        <img src="{% static 'img/6.webp' %}" alt="Recovery Service 6" class="gallery-card-image"
+                            loading="lazy">
                         <div class="gallery-card-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
-                    
-                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/7.webp' %}">
-                        <img src="{% static 'img/7.webp' %}" alt="Recovery Service 7" class="gallery-card-image" loading="lazy">
+
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                        data-image="{% static 'img/7.webp' %}">
+                        <img src="{% static 'img/7.webp' %}" alt="Recovery Service 7" class="gallery-card-image"
+                            loading="lazy">
                         <div class="gallery-card-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
-                    
-                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/8.webp' %}">
-                        <img src="{% static 'img/8.webp' %}" alt="Recovery Service 8" class="gallery-card-image" loading="lazy">
+
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                        data-image="{% static 'img/8.webp' %}">
+                        <img src="{% static 'img/8.webp' %}" alt="Recovery Service 8" class="gallery-card-image"
+                            loading="lazy">
                         <div class="gallery-card-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
-                    
-                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/9.webp' %}">
-                        <img src="{% static 'img/9.webp' %}" alt="Recovery Service 9" class="gallery-card-image" loading="lazy">
+
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                        data-image="{% static 'img/9.webp' %}">
+                        <img src="{% static 'img/9.webp' %}" alt="Recovery Service 9" class="gallery-card-image"
+                            loading="lazy">
                         <div class="gallery-card-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
-                    
-                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/10.webp' %}">
-                        <img src="{% static 'img/10.webp' %}" alt="Recovery Service 10" class="gallery-card-image" loading="lazy">
+
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                        data-image="{% static 'img/10.webp' %}">
+                        <img src="{% static 'img/10.webp' %}" alt="Recovery Service 10" class="gallery-card-image"
+                            loading="lazy">
                         <div class="gallery-card-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
-                    
-                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/11.webp' %}">
-                        <img src="{% static 'img/11.webp' %}" alt="Recovery Service 11" class="gallery-card-image" loading="lazy">
+
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                        data-image="{% static 'img/11.webp' %}">
+                        <img src="{% static 'img/11.webp' %}" alt="Recovery Service 11" class="gallery-card-image"
+                            loading="lazy">
                         <div class="gallery-card-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
-                    
-                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/12.webp' %}">
-                        <img src="{% static 'img/12.webp' %}" alt="Recovery Service 12" class="gallery-card-image" loading="lazy">
+
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                        data-image="{% static 'img/12.webp' %}">
+                        <img src="{% static 'img/12.webp' %}" alt="Recovery Service 12" class="gallery-card-image"
+                            loading="lazy">
                         <div class="gallery-card-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
-                    
-                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/13.webp' %}">
-                        <img src="{% static 'img/13.webp' %}" alt="Recovery Service 13" class="gallery-card-image" loading="lazy">
+
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                        data-image="{% static 'img/13.webp' %}">
+                        <img src="{% static 'img/13.webp' %}" alt="Recovery Service 13" class="gallery-card-image"
+                            loading="lazy">
                         <div class="gallery-card-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
-                    
-                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/14.webp' %}">
-                        <img src="{% static 'img/14.webp' %}" alt="Recovery Service 14" class="gallery-card-image" loading="lazy">
+
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                        data-image="{% static 'img/14.webp' %}">
+                        <img src="{% static 'img/14.webp' %}" alt="Recovery Service 14" class="gallery-card-image"
+                            loading="lazy">
                         <div class="gallery-card-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
-                    
-                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/15.webp' %}">
-                        <img src="{% static 'img/15.webp' %}" alt="Recovery Service 15" class="gallery-card-image" loading="lazy">
+
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                        data-image="{% static 'img/15.webp' %}">
+                        <img src="{% static 'img/15.webp' %}" alt="Recovery Service 15" class="gallery-card-image"
+                            loading="lazy">
                         <div class="gallery-card-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
-                    
-                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/16.webp' %}">
-                        <img src="{% static 'img/16.webp' %}" alt="Recovery Service 16" class="gallery-card-image" loading="lazy">
+
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                        data-image="{% static 'img/16.webp' %}">
+                        <img src="{% static 'img/16.webp' %}" alt="Recovery Service 16" class="gallery-card-image"
+                            loading="lazy">
                         <div class="gallery-card-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
-                    
-                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/17.webp' %}">
-                        <img src="{% static 'img/17.webp' %}" alt="Recovery Service 17" class="gallery-card-image" loading="lazy">
+
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                        data-image="{% static 'img/17.webp' %}">
+                        <img src="{% static 'img/17.webp' %}" alt="Recovery Service 17" class="gallery-card-image"
+                            loading="lazy">
                         <div class="gallery-card-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
-                    
-                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/18.webp' %}">
-                        <img src="{% static 'img/18.webp' %}" alt="Recovery Service 18" class="gallery-card-image" loading="lazy">
+
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                        data-image="{% static 'img/18.webp' %}">
+                        <img src="{% static 'img/18.webp' %}" alt="Recovery Service 18" class="gallery-card-image"
+                            loading="lazy">
                         <div class="gallery-card-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
-                    
-                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/19.webp' %}">
-                        <img src="{% static 'img/19.webp' %}" alt="Recovery Service 19" class="gallery-card-image" loading="lazy">
+
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                        data-image="{% static 'img/19.webp' %}">
+                        <img src="{% static 'img/19.webp' %}" alt="Recovery Service 19" class="gallery-card-image"
+                            loading="lazy">
                         <div class="gallery-card-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
-                    
-                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal" data-image="{% static 'img/20.webp' %}">
-                        <img src="{% static 'img/20.webp' %}" alt="Recovery Service 20" class="gallery-card-image" loading="lazy">
+
+                    <div class="gallery-card" data-bs-toggle="modal" data-bs-target="#galleryModal"
+                        data-image="{% static 'img/20.webp' %}">
+                        <img src="{% static 'img/20.webp' %}" alt="Recovery Service 20" class="gallery-card-image"
+                            loading="lazy">
                         <div class="gallery-card-overlay">
                             <i class="fas fa-search-plus"></i>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Navigation Arrows -->
             <button class="gallery-nav gallery-nav-prev" id="prevBtn">
                 <i class="fas fa-chevron-left"></i>
@@ -244,7 +373,7 @@
             <button class="gallery-nav gallery-nav-next" id="nextBtn">
                 <i class="fas fa-chevron-right"></i>
             </button>
-            
+
             <!-- Dots Indicator -->
             <div class="gallery-dots" id="galleryDots"></div>
         </div>
@@ -256,7 +385,8 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body text-center p-0">
-                <button type="button" class="btn-close position-absolute top-0 end-0 m-3 bg-white rounded-circle p-2" data-bs-dismiss="modal" aria-label="Close" style="z-index: 1050;"></button>
+                <button type="button" class="btn-close position-absolute top-0 end-0 m-3 bg-white rounded-circle p-2"
+                    data-bs-dismiss="modal" aria-label="Close" style="z-index: 1050;"></button>
                 <img id="modalImage" src="" alt="Gallery Image" class="img-fluid rounded">
             </div>
         </div>
@@ -272,7 +402,7 @@
                 <p class="lead">Professional vehicle recovery and roadside assistance services you can trust.</p>
             </div>
         </div>
-        
+
         <div class="row g-4">
             {% for service in services %}
             <div class="col-md-4">
@@ -282,14 +412,15 @@
                         <h2 class="h4 card-title mb-3">{{ service.title }}</h2>
                         <p class="card-text flex-grow-1">{{ service.description|truncatewords:30 }}</p>
                         <div class="mt-auto">
-                            <a href="{% url 'services:service_detail' service.pk %}" class="btn btn-primary">Learn More</a>
+                            <a href="{% url 'services:service_detail' service.pk %}" class="btn btn-primary">Learn
+                                More</a>
                         </div>
                     </div>
                 </div>
             </div>
             {% endfor %}
         </div>
-        
+
         <div class="row mt-5">
             <div class="col text-center">
                 <a href="{% url 'services:service_list' %}" class="btn btn-lg btn-primary">View All Services</a>
@@ -308,7 +439,7 @@
                 <p class="lead">Don't just take our word for it - hear from our satisfied customers.</p>
             </div>
         </div>
-        
+
         <div class="row">
             {% for testimonial in testimonials %}
             <div class="col-md-4 mb-4">
@@ -316,7 +447,8 @@
                     <div class="card-body">
                         <div class="mb-3">
                             {% for i in "12345"|make_list %}
-                            <i class="fas fa-star{% if forloop.counter <= testimonial.rating %} text-warning{% else %} text-muted{% endif %}"></i>
+                            <i
+                                class="fas fa-star{% if forloop.counter <= testimonial.rating %} text-warning{% else %} text-muted{% endif %}"></i>
                             {% endfor %}
                         </div>
                         <p class="card-text">{{ testimonial.content }}</p>
@@ -375,22 +507,22 @@
         background-position: center;
         clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
         filter: brightness(0.7) contrast(1.1);
-        box-shadow: -10px 0 20px rgba(0,0,0,0.4);
+        box-shadow: -10px 0 20px rgba(0, 0, 0, 0.4);
         z-index: 1;
     }
-    
+
     @media (max-width: 991px) {
         .hero {
             padding: 60px 0;
             background: linear-gradient(180deg, var(--primary-color) 0%, rgba(130, 0, 0, 0.95) 100%);
             min-height: auto;
         }
-        
+
         .hero-content {
             padding-right: 0;
             margin-bottom: 30px;
         }
-        
+
         .hero-image {
             position: relative;
             right: 0;
@@ -406,7 +538,7 @@
     .card {
         transition: transform 0.3s ease;
     }
-    
+
     .card:hover {
         transform: translateY(-5px);
     }
@@ -485,11 +617,31 @@
     }
 
     /* Card positioning for carousel effect */
-    .gallery-card:nth-child(1) { transform: translateX(-400px) translateZ(-200px) rotateY(35deg); opacity: 0.7; }
-    .gallery-card:nth-child(2) { transform: translateX(-200px) translateZ(-100px) rotateY(15deg); opacity: 0.8; }
-    .gallery-card:nth-child(3) { transform: translateX(0) translateZ(0) rotateY(0deg); opacity: 1; z-index: 10; }
-    .gallery-card:nth-child(4) { transform: translateX(200px) translateZ(-100px) rotateY(-15deg); opacity: 0.8; }
-    .gallery-card:nth-child(5) { transform: translateX(400px) translateZ(-200px) rotateY(-35deg); opacity: 0.7; }
+    .gallery-card:nth-child(1) {
+        transform: translateX(-400px) translateZ(-200px) rotateY(35deg);
+        opacity: 0.7;
+    }
+
+    .gallery-card:nth-child(2) {
+        transform: translateX(-200px) translateZ(-100px) rotateY(15deg);
+        opacity: 0.8;
+    }
+
+    .gallery-card:nth-child(3) {
+        transform: translateX(0) translateZ(0) rotateY(0deg);
+        opacity: 1;
+        z-index: 10;
+    }
+
+    .gallery-card:nth-child(4) {
+        transform: translateX(200px) translateZ(-100px) rotateY(-15deg);
+        opacity: 0.8;
+    }
+
+    .gallery-card:nth-child(5) {
+        transform: translateX(400px) translateZ(-200px) rotateY(-35deg);
+        opacity: 0.7;
+    }
 
     /* Hide cards beyond the 5 visible ones */
     .gallery-card:nth-child(n+6) {
@@ -583,11 +735,25 @@
             height: 250px;
         }
 
-        .gallery-card:nth-child(1) { transform: translateX(-250px) translateZ(-150px) rotateY(25deg); }
-        .gallery-card:nth-child(2) { transform: translateX(-125px) translateZ(-75px) rotateY(12deg); }
-        .gallery-card:nth-child(3) { transform: translateX(0) translateZ(0) rotateY(0deg); }
-        .gallery-card:nth-child(4) { transform: translateX(125px) translateZ(-75px) rotateY(-12deg); }
-        .gallery-card:nth-child(5) { transform: translateX(250px) translateZ(-150px) rotateY(-25deg); }
+        .gallery-card:nth-child(1) {
+            transform: translateX(-250px) translateZ(-150px) rotateY(25deg);
+        }
+
+        .gallery-card:nth-child(2) {
+            transform: translateX(-125px) translateZ(-75px) rotateY(12deg);
+        }
+
+        .gallery-card:nth-child(3) {
+            transform: translateX(0) translateZ(0) rotateY(0deg);
+        }
+
+        .gallery-card:nth-child(4) {
+            transform: translateX(125px) translateZ(-75px) rotateY(-12deg);
+        }
+
+        .gallery-card:nth-child(5) {
+            transform: translateX(250px) translateZ(-150px) rotateY(-25deg);
+        }
 
         .gallery-nav {
             width: 40px;
@@ -609,18 +775,32 @@
             height: 200px;
         }
 
-        .gallery-card:nth-child(1) { transform: translateX(-180px) translateZ(-100px) rotateY(20deg); }
-        .gallery-card:nth-child(2) { transform: translateX(-90px) translateZ(-50px) rotateY(10deg); }
-        .gallery-card:nth-child(3) { transform: translateX(0) translateZ(0) rotateY(0deg); }
-        .gallery-card:nth-child(4) { transform: translateX(90px) translateZ(-50px) rotateY(-10deg); }
-        .gallery-card:nth-child(5) { transform: translateX(180px) translateZ(-100px) rotateY(-20deg); }
+        .gallery-card:nth-child(1) {
+            transform: translateX(-180px) translateZ(-100px) rotateY(20deg);
+        }
+
+        .gallery-card:nth-child(2) {
+            transform: translateX(-90px) translateZ(-50px) rotateY(10deg);
+        }
+
+        .gallery-card:nth-child(3) {
+            transform: translateX(0) translateZ(0) rotateY(0deg);
+        }
+
+        .gallery-card:nth-child(4) {
+            transform: translateX(90px) translateZ(-50px) rotateY(-10deg);
+        }
+
+        .gallery-card:nth-child(5) {
+            transform: translateX(180px) translateZ(-100px) rotateY(-20deg);
+        }
     }
 </style>
 {% endblock %}
 
 {% block extra_js %}
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Gallery carousel functionality
         const galleryTrack = document.getElementById('galleryTrack');
         const prevBtn = document.getElementById('prevBtn');
@@ -628,29 +808,29 @@
         const galleryDots = document.getElementById('galleryDots');
         const galleryCards = document.querySelectorAll('.gallery-card');
         const modalImage = document.getElementById('modalImage');
-        
+
         let currentIndex = 4; // Start from the 5th photo (index 4)
         const totalCards = galleryCards.length;
         const visibleCards = 5;
-        
+
         // Create dots
-                function createDots() {
-                    const totalDots = Math.ceil(totalCards / visibleCards);
-                    for (let i = 0; i < totalDots; i++) {
-                        const dot = document.createElement('div');
-                        dot.classList.add('gallery-dot');
-                        if (Math.floor(currentIndex / visibleCards) === i) dot.classList.add('active');
-                        dot.addEventListener('click', () => goToSlide(i * visibleCards));
-                        galleryDots.appendChild(dot);
-                    }
-                }
-        
+        function createDots() {
+            const totalDots = Math.ceil(totalCards / visibleCards);
+            for (let i = 0; i < totalDots; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('gallery-dot');
+                if (Math.floor(currentIndex / visibleCards) === i) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(i * visibleCards));
+                galleryDots.appendChild(dot);
+            }
+        }
+
         // Update card positions
         function updateCardPositions() {
             galleryCards.forEach((card, index) => {
                 const relativeIndex = index - currentIndex;
                 card.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                
+
                 if (relativeIndex < -2 || relativeIndex > 2) {
                     // Hide cards that are too far
                     card.style.opacity = '0';
@@ -659,7 +839,7 @@
                 } else {
                     // Position visible cards
                     card.style.pointerEvents = 'auto';
-                    
+
                     switch (relativeIndex) {
                         case -2:
                             card.style.opacity = '0.6';
@@ -689,20 +869,20 @@
                     }
                 }
             });
-            
+
             // Update dots
             const dots = document.querySelectorAll('.gallery-dot');
             dots.forEach((dot, index) => {
                 dot.classList.toggle('active', Math.floor(currentIndex / visibleCards) === index);
             });
         }
-        
+
         // Go to specific slide
         function goToSlide(index) {
             currentIndex = Math.max(0, Math.min(index, totalCards - 1));
             updateCardPositions();
         }
-        
+
         // Next slide
         function nextSlide() {
             if (currentIndex < totalCards - 1) {
@@ -710,7 +890,7 @@
                 updateCardPositions();
             }
         }
-        
+
         // Previous slide
         function prevSlide() {
             if (currentIndex > 0) {
@@ -718,14 +898,14 @@
                 updateCardPositions();
             }
         }
-        
+
         // Event listeners
         nextBtn.addEventListener('click', nextSlide);
         prevBtn.addEventListener('click', prevSlide);
-        
+
         // Auto-play functionality
         let autoPlayInterval;
-        
+
         function startAutoPlay() {
             autoPlayInterval = setInterval(() => {
                 if (currentIndex < totalCards - 1) {
@@ -735,36 +915,36 @@
                 }
             }, 4000);
         }
-        
+
         function stopAutoPlay() {
             clearInterval(autoPlayInterval);
         }
-        
+
         // Pause auto-play on hover
         galleryTrack.addEventListener('mouseenter', stopAutoPlay);
         galleryTrack.addEventListener('mouseleave', startAutoPlay);
-        
+
         // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'ArrowLeft') {
                 prevSlide();
             } else if (e.key === 'ArrowRight') {
                 nextSlide();
             }
         });
-        
+
         // Touch/swipe support
         let startX = 0;
         let endX = 0;
-        
-        galleryTrack.addEventListener('touchstart', function(e) {
+
+        galleryTrack.addEventListener('touchstart', function (e) {
             startX = e.touches[0].clientX;
         });
-        
-        galleryTrack.addEventListener('touchend', function(e) {
+
+        galleryTrack.addEventListener('touchend', function (e) {
             endX = e.changedTouches[0].clientX;
             const diff = startX - endX;
-            
+
             if (Math.abs(diff) > 50) {
                 if (diff > 0) {
                     nextSlide();
@@ -773,20 +953,20 @@
                 }
             }
         });
-        
+
         // Modal functionality
         galleryCards.forEach(card => {
-            card.addEventListener('click', function() {
+            card.addEventListener('click', function () {
                 const imageSrc = this.getAttribute('data-image');
                 modalImage.src = imageSrc;
             });
         });
-        
+
         // Initialize
         createDots();
         updateCardPositions();
         startAutoPlay();
-        
+
         // Preload images for better performance
         const imageUrls = [
             '{% static "img/1.webp" %}',
@@ -809,16 +989,16 @@
             '{% static "img/19.webp" %}',
             '{% static "img/20.webp" %}'
         ];
-        
+
         imageUrls.forEach(url => {
             const img = new Image();
             img.src = url;
         });
-        
+
         // Handle image load errors gracefully
         galleryCards.forEach(card => {
             const img = card.querySelector('.gallery-card-image');
-            img.addEventListener('error', function() {
+            img.addEventListener('error', function () {
                 card.style.display = 'none';
             });
         });
